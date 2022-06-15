@@ -1,0 +1,99 @@
+body {
+    background-image: url(assets/background.png)
+}
+
+.taskbar {
+    background-color: #211e1e;
+    width: 1903px;
+    height: 100px;
+    position: relative;
+    left: -8px;
+    bottom: 20px;
+    
+}
+
+.logo {
+    background-image: url(assets/AC.jpg);
+    background-size: cover;
+    background-position: bottom center;
+    height: 90px;
+    width: 120px;
+    margin: 20px 250px;
+    position: relative;
+    border-radius: 100%;
+    
+}
+
+.links {
+  width: 600px;
+  position: relative;
+  left: 1300px;
+  bottom: 80px;
+  text-align: center;
+  margin-right: 1px;
+    
+}
+
+.links a {
+    margin: 0px 10px;
+    color: rgb(230, 111, 9);
+    font-size: 30px;
+    
+}
+
+h1 {
+    font-size: 85px;
+    margin-left: 220px;
+}
+
+h2 {
+    font-size: 50px;
+    margin-left: 220px;
+    margin-bottom: 75px;
+}
+
+header h2 {
+    color: green;
+}
+
+article {
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    font-size: 30px;
+    font-family: 'Courier Prime', monospace;
+}
+
+#separator {
+    margin: 50px auto;
+}
+
+.uloha {
+    text-align: center;
+    list-style-position: inside;
+}
+
+ol {
+    padding: 0;
+}
+
+.uloha h2 {
+    margin-left: 0px;
+}
+
+p {
+    text-align: center;
+    margin: auto;
+    font-size: 24px;
+    width: 1200px;
+    word-wrap: break-word;
+    font-family: 'Courier Prime', monospace;
+}
+
+.title h2 {
+    text-align: center;
+    margin: 50px auto;
+    width: 75%;
+    font-size: 60px;
+    
+}
