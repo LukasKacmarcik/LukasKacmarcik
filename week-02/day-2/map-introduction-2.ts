@@ -7,3 +7,22 @@ let myMap: Record<string, string> = {
    for(let i = 0; i < 4; i++) {
      console.log(Object.values(myMap)[i] + ' ' + '(ISBN: '+ Object.keys(myMap)[i] +')');
 }
+//
+delete myMap['978-1-60309-444-3'];
+//
+delete myMap['978-1-60309-461-0'];
+//
+myMap[978-1-60309-450-4] = 'They Called Us Enemy';
+myMap[978-1-60309-453-5] = '	Why Did We Trust Him?';
+//
+if(myMap[478-0-61159-424-8] == undefined) {
+  console.log('false');
+}else {
+  console.log('true');
+  
+}
+
+console.log(myMap[978-1-60309-453-5]);
+
+
+
