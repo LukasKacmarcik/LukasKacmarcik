@@ -30,13 +30,94 @@ let aliceList: Record<string, number> = {
   'Apples': 1,
   'Tomato': 10,
 }
-//
 
-for ( let i = 0; i < Object.keys(bobList).length; i++) {
-  let summ = 0;
-  if(bobList.keys[i])
+
+function getSum(shopList: Object , personList: Object) {
+  let sum = 0;
+  for ( let i = 0; i < Object.keys(personList).length; i++) {
+    for(let j = 0; j < Object.keys(shopList).length; j++) {
+      if(Object.keys(personList)[i] === Object.keys(shopList)[j]) {
+        sum = sum + (Object.values(personList)[i] * Object.values(shopList)[j]);
+      }
+    }
+  }
+  return console.log(sum);
 }
-console.log(Object.keys(bobList).length);
+
+getSum(shopingList, bobList);
+getSum(shopingList, aliceList);
+
+if(bobList['Rice'] > aliceList['Rice']) {
+  console.log('Bob');
+  }else {
+    console.log('Alice');
+}
+
+if(bobList['Potato'] !== undefined && aliceList['Potato'] !== undefined ){
+  if(bobList['Potato'] > aliceList['Potato']) {
+    console.log('Bob');
+    }else {
+      console.log('Alice');
+  }
+}else if(bobList['Potato'] !== undefined) {
+  console.log('Bob');
+}else{
+  console.log('Alice');
+}
+
+if(bobList['Ham'] !== undefined && aliceList['Ham'] !== undefined ){
+  if(bobList['Ham'] > aliceList['Ham']) {
+    console.log('Bob');
+    }else {
+      console.log('Alice');
+  }
+}else if(bobList['Ham'] !== undefined) {
+  console.log('Bob');
+}else if(aliceList['Ham'] !== undefined) {
+  console.log('Alice');
+}else if(bobList['Ham'] === undefined && aliceList['Ham'] === undefined) {
+  console.log('no one');
+}
+
+if (bobList['Apples'] !== undefined && aliceList['Apples'] !== undefined ){
+  if (bobList['Apples'] > aliceList['Apples']) {
+    console.log('Bob');
+    }else if (bobList['Apples'] < aliceList['Apples']) {
+      console.log('Alice');
+    }else {
+      console.log('no one');
+    }
+}else if (bobList['Apples'] !== undefined) {
+  console.log('Bob');
+}else if (aliceList['Apples'] !== undefined) {
+  console.log('Alice');
+}else if (bobList['Apples'] === undefined && aliceList['Apples'] === undefined) {
+  console.log('no one');
+}
+
+if (Object.keys(bobList).length > Object.keys(aliceList).length) {
+  console.log('Bob');
+}else {
+  console.log('Alice');
+}
+let bobsItemCount = 0;
+let aliceItemCount = 0;
+for (let i = 0; i < Object.keys(bobList).length; i++) {
+  bobsItemCount = bobsItemCount + Object.values(bobList)[i];
+}
+for (let i = 0; i < Object.keys(aliceList).length; i++) {
+  aliceItemCount = aliceItemCount + Object.values(aliceList)[i];
+}
+
+if (aliceItemCount > bobsItemCount) {
+  console.log('Alice');
+}else {
+  console.log('Bob');
+}
+
+
+
+
 
 
 
