@@ -1,16 +1,13 @@
-//word
 
-let index = 0;
 function addChar(word: string): string {
-  let arr: string[]=[];
-  if (word.charAt(word.length - 2) === '*') {
-    return word
-  } else {
-    arr = word.split('');
-    arr[index] = arr[index] + '*';
-    word = arr.join('');
-    index += 2;
-    return addChar(word);
+  if (word.length < 1) {
+    return '';
+  }
+  if(word.length > 1) {
+  return word.charAt(0) + '*' + addChar(word.slice(1));
+  }else {
+    return word.charAt(0) + addChar(word.slice(1));
   }
 }
+
 console.log(addChar('word'));

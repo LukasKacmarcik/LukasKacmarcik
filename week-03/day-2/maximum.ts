@@ -1,17 +1,21 @@
+
+
 let testArr = [1, 0, 15, 20, 14, 25, 6, 9,36];
 
-let count = 0;
-let max: number = 0;
-function findMax(arr: number[]): any {
-  if (count === arr.length) {
-    return max;
+function maximum(numbers: number[]): number {
+  if (numbers.length === 0) {
+    return 0;
   }
-  else {
-    if (arr[count] > max) {
-      max = arr[count];
-    }
-    count = count +1;
-    return findMax(arr);
+
+  const first = numbers[0];
+  const rest = numbers.slice(1);
+
+  const remainingMax = maximum(rest);
+
+  if (first > remainingMax) {
+    return first;
+  } else {
+    return remainingMax;
   }
 }
-console.log(findMax(testArr));
+console.log(maximum(testArr));
