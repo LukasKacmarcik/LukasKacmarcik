@@ -36,6 +36,7 @@ class DiceSet {
 // Your task is to roll the dice until all of the dice are 6
 
 let diceSet = new DiceSet();
+
 diceSet.roll();
 
 for (let i = 0; i < 6; i++) {

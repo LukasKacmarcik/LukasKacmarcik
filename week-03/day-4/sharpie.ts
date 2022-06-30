@@ -1,4 +1,4 @@
-class Sharpie {
+export class Sharpie {
   color: string;
   width: number;
   inkAmount: number;
@@ -18,35 +18,35 @@ class Sharpie {
   }
 }
 
-let sharpie = new Sharpie('red', 10,);
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
-sharpie.use();
-console.log(sharpie);
- try {
-  sharpie.use();
-console.log(sharpie);
- } catch (error: any) {
-  console.error(error.message);
- }
+// let sharpie = new Sharpie('red', 10,);
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+// sharpie.use();
+// console.log(sharpie);
+//  try {
+//   sharpie.use();
+// console.log(sharpie);
+//  } catch (error: any) {
+//   console.error(error.message);
+//  }
