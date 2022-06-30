@@ -19,9 +19,11 @@ class Animal {
   }
 }
 
-let dog = new Animal();
+// let dog = new Animal();
 
-dog.drink();
+// dog.drink();
 
 
-console.log(dog);
+// console.log(dog);
+
+export { Animal };
