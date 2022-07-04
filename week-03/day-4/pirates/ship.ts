@@ -7,7 +7,8 @@ export class Ship {
   public fillShip() {
     this.captain = new Captain();
     this.crew.push(this.captain);
-    for (let i = 0; i < Math.floor((Math.random() * 112) + 1); i++) {
+    let randomNum = Math.floor((Math.random() * 112) + 1);
+    for (let i = 0; i < randomNum; i++) {
       this.crew.push(new Pirate);
     }
   }
@@ -81,3 +82,7 @@ export class Ship {
     return wins = 1;
   }
 };
+
+let ship1 = new Ship();
+ship1.fillShip();
+ship1.state();
