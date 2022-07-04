@@ -1,0 +1,13 @@
+let listA = ['Apple', 'Avocado', 'Blueberries', 'Durian', 'Lychee'];
+let listB: string[] = [];
+listB.push(...listA);
+console.log(listA.includes('Durian'));
+listB.splice(3,1);
+listA.splice(4,0,'Kiwifruit');
+console.log(listA.length < listB.length);
+console.log(listA.indexOf('Avocado'));
+console.log(listB.indexOf('Durian'));
+listB.push('Passion fruit', 'Pomelo');
+console.log(listA[2]);
+console.log(listA);
+console.log(listB);
