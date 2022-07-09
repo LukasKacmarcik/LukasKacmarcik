@@ -15,6 +15,10 @@ export function listOfNames(arr: any[]) {
   let names = arr.filter(obj => obj.candies > 4);
   names.forEach(obj => console.log(obj.name)
   )
+  let namezzz: string[] = [];
+  names.forEach(obj => namezzz.push(obj.name)
+  )
+  return namezzz;
 }
 // create a function called sumOfAge() that takes a list of students and returns:
 // - The sum of the age of people who have less than 5 candies
@@ -25,5 +29,5 @@ export function sumOfAge(arr: any[]) {
       sum += object.age;
     }
   })
-  console.log(sum);
+  return sum;
 }
