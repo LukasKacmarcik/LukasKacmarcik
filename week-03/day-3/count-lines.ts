@@ -5,7 +5,7 @@ import fs from 'fs';
 // should not raise any error.
 
 
-function countLines(filePath: string): number {
+export function countLines(filePath: string): number {
   let content = fs.readFileSync(filePath, 'utf-8');
   let arr: string[] = content.split('\n');
   return arr.length;

@@ -23,7 +23,7 @@ const queue: FestivalGoer[] = [
 // const watchlist: string[] = [];
 // let securityAlcoholLoot: number = 0;
 
-function securityCheck(arr: any[]) {
+export function securityCheck(arr: any[]) {
   let canEnter: string[] = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].guns === 0) {

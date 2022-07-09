@@ -3,7 +3,7 @@
 let girls: string[] = ['Eve', 'Ashley', 'Claire', 'Kat', 'Jane'];
 let boys: string[] = ['Joe', 'Fred', 'Tom', 'Todd', 'Neef', 'Jeff'];
 
-function match(arr1: string[], arr2: string[]) {
+export function match(arr1: string[], arr2: string[]) {
   let together: string[] = [];
   let container: string = '';
   for (let i = 0; i < girls.length; i++) {

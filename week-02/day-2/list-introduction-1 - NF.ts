@@ -18,7 +18,7 @@ namesList.push('Amanda');
 console.log(namesList.length);
 
 
-function callName(element:string) {
+export function callName(element:string) {
     console.log(element);
     }
 

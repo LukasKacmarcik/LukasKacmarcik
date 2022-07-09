@@ -2,7 +2,7 @@
 // "Please enter the number of players:
 // > numberOfPlayers
 
-function getWinningSeat(numberOfPlayers:number):number {
+export function getWinningSeat(numberOfPlayers:number):number {
   let players: number[] = []
   let playerSeat = 0;
   for (let i = 0; i < numberOfPlayers; i++) {

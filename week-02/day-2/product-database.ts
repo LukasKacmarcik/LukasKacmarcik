@@ -25,7 +25,7 @@ for (let i = 0; i < Object.keys(myDatabase).length; i++) {
     cheapest = Object.values(myDatabase)[i];
   }
 }
-function getKeyByValue(object: any, value: number) {
+export function getKeyByValue(object: any, value: number) {
   return Object.keys(object).find(key => object[key] === value);
 }
 

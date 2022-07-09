@@ -8,7 +8,7 @@ const accounts: any[] = [
   { clientName: 'Sergei', accountNumber: 23456311, balance: 1353600.0 }
 ];
 
-function getNameAndBalance(acnumber: number) {
+export function getNameAndBalance(acnumber: number) {
   let outcome: any[] = [];
   for (let i = 0; i < accounts.length; i++) {
     if (accounts[i].accountNumber === acnumber) {
@@ -20,7 +20,7 @@ function getNameAndBalance(acnumber: number) {
 }
 getNameAndBalance(11234543);
 //
-function transfer(arr: any[], fromac: number, toac:number, amount: number) {
+export function transfer(arr: any[], fromac: number, toac:number, amount: number) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].accountNumber === fromac) {
       arr[i].balance = arr[i].balance - amount;

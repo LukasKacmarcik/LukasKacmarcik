@@ -27,24 +27,6 @@ let hashmap : Record<number, string> = {
 // }
 // console.log(decodeMessage(notSoCrypticMessage));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //MY SOLUTION//
 
 

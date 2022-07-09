@@ -1,6 +1,6 @@
 let shopItems: any[] = ['Cupcake', 2, 'Brownie', false];
 
-function repairSweets(arr: any[]) {
+export function repairSweets(arr: any[]) {
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] == 'boolean') {
       arr[i] = 'Ice cream';

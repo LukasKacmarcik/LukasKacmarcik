@@ -4,7 +4,7 @@ let words: string[] = ['What', 'I', 'do', 'create,', 'I', 'cannot', 'not', 'unde
 // Expected output: "What I cannot create I do not understand."
 let fixedQuote: string = '';
 let temporary = '';
-function swapQuote(arr: string[]) {
+export function swapQuote(arr: string[]) {
   temporary = arr[2];
   arr[2] = arr[5];
   arr[5] = temporary;

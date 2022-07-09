@@ -1,6 +1,6 @@
 //1634
 
-function isArmstrongNumber(num:number): any {
+export function isArmstrongNumber(num:number): any {
   let arrOfNum = num.toString().split('');
   let sum = 0;
   arrOfNum.forEach(val => sum += Math.pow(+val,arrOfNum.length))

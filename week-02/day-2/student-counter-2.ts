@@ -11,14 +11,14 @@ const students: any[] = [
 
 // create a function called listOfNames() that takes a list of students and returns:
 // - The name of students who have more than 4 candies
-function listOfNames(arr: any[]) {
+export function listOfNames(arr: any[]) {
   let names = arr.filter(obj => obj.candies > 4);
   names.forEach(obj => console.log(obj.name)
   )
 }
 // create a function called sumOfAge() that takes a list of students and returns:
 // - The sum of the age of people who have less than 5 candies
-function sumOfAge(arr: any[]) {
+export function sumOfAge(arr: any[]) {
   let sum: number = 0;
   arr.forEach(object => {
     if(object.candies < 5) {
@@ -27,5 +27,3 @@ function sumOfAge(arr: any[]) {
   })
   console.log(sum);
 }
-export {listOfNames};
-export {sumOfAge}

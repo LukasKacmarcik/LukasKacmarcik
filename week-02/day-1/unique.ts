@@ -1,10 +1,10 @@
 //unique.ts
 
 
-function findUniqueItems(numbers: number[])  {
+function findUniqueItemss(numbers: number[])  {
     let newArr = [... new Set(numbers)];
     return newArr;
 }
 
-console.log(findUniqueItems([10, 50, 60, 60 ,50 ,28 ,62,]));
+console.log(findUniqueItemss([10, 50, 60, 60 ,50 ,28 ,62,]));
  

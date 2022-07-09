@@ -2,7 +2,7 @@
 
 let listOfSpendings = [500, 1000, 1250, 175, 800, 120];
    
-function sumOfSpendings(arr: number[]) {
+export function sumOfSpendings(arr: number[]) {
     let sum = 0;
     for(let i=0; i <= arr.length-1; i++) {
         
@@ -14,7 +14,7 @@ function sumOfSpendings(arr: number[]) {
 
 console.log(sumOfSpendings(listOfSpendings));
 
-function findBigest(arr: number[]) {
+export function findBigest(arr: number[]) {
     let toCompare = 0;
     for(let i=0; i <= arr.length-1; i++) {
         
@@ -27,7 +27,7 @@ function findBigest(arr: number[]) {
 
 console.log(findBigest(listOfSpendings));
 
-function findSmalest(arr: number[]) {
+export function findSmalest(arr: number[]) {
     let toCompare = arr[0];
     for(let i=1; i <= arr.length-1; i++) {
         if(toCompare > arr[i]) {
@@ -40,7 +40,7 @@ function findSmalest(arr: number[]) {
     
 console.log(findSmalest(listOfSpendings));
 
-function findAverage(arr: number[]) {
+export function findAverage(arr: number[]) {
 
     let sum = 0;
     for(let i=0; i <= arr.length-1; i++) {
