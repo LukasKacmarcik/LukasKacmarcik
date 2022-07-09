@@ -37,16 +37,7 @@ let lineCount: number = 7;
 //   }
 // }
 // drawDiamond(7)
-
-// export function drawPyramid(lineCount: number) {
-//   let dotCount = 1;
-//   for(let i = lineCount; i > 0; i--) {
-//     let line = '';
-//     line = ' '.repeat(i - 1) + '*'.repeat(dotCount);
-//     console.log(line);
-//     dotCount += 2;
-//   }
-// }
+///////////////////DONT WORK BECAUSE REPEAT CANT WORK WITH NEGATIV NUMBERS///////////////////IT CAN BE FIXED/////////////
 
 export function drawDiamond(lineCount: number) {
   let dotCount: number = 1;
