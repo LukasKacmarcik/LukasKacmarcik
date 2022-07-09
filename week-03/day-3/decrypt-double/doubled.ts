@@ -2,7 +2,7 @@ import fs from 'fs';
 
 export function decryptDoubled(pathFile: string) {
   let messageToDecrypt: string = fs.readFileSync(pathFile, 'utf-8');
-  if(!messageToDecrypt) {
+  if(!fs.readFileSync(pathFile, 'utf-8')) {
     return 'Unable to read';
   }
   let arr: string[] = [];
