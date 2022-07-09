@@ -1,6 +1,6 @@
 //multiplication-table.ts
 
-function multiplicationTable() {
+export function multiplicationTable() {
 
     let number = 15;
 
@@ -11,5 +11,3 @@ function multiplicationTable() {
 
     }
 }
-
-multiplicationTable()
