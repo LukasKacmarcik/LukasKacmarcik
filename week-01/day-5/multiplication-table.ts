@@ -1,8 +1,6 @@
 //multiplication-table.ts
 
-export function multiplicationTable() {
-
-    let number = 15;
+export function multiplicationTable(number: number) {
 
     for (let i = 1; i <= 10; i++) {
 
