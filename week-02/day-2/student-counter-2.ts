@@ -22,7 +22,7 @@ export function listOfNames(arr: any[]) {
 }
 // create a function called sumOfAge() that takes a list of students and returns:
 // - The sum of the age of people who have less than 5 candies
-export function sumOfAge(arr: any[]) {
+export function sumOfAge(arr: any[]): number {
   let sum: number = 0;
   arr.forEach(object => {
     if(object.candies < 5) {

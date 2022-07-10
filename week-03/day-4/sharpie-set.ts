@@ -1,6 +1,6 @@
 import { Sharpie } from "./sharpie";
 
-class SharpieSet {
+export class SharpieSet {
   listOfSharpies: Sharpie[] = [];
 
   public add(sharpie: Sharpie) {
@@ -25,23 +25,23 @@ class SharpieSet {
     }
   }
 }
-let sharpie1: Sharpie = new Sharpie('black',10,100)
-let sharpie2 = new Sharpie('black',10,20)
-let sharpie3 = new Sharpie('black',10,0)
+// let sharpie1: Sharpie = new Sharpie('black',10,100)
+// let sharpie2 = new Sharpie('black',10,20)
+// let sharpie3 = new Sharpie('black',10,0)
 
 
-let myPencilCase = new SharpieSet();
-console.log(myPencilCase);
-myPencilCase.add(sharpie1)
-console.log(myPencilCase);
-myPencilCase.add(sharpie2)
-console.log(myPencilCase);
-myPencilCase.add(sharpie3)
-console.log(myPencilCase);
+// let myPencilCase = new SharpieSet();
+// console.log(myPencilCase);
+// myPencilCase.add(sharpie1)
+// console.log(myPencilCase);
+// myPencilCase.add(sharpie2)
+// console.log(myPencilCase);
+// myPencilCase.add(sharpie3)
+// console.log(myPencilCase);
 
-myPencilCase.removeTrash();
+// myPencilCase.removeTrash();
 
-console.log(myPencilCase);
+// console.log(myPencilCase);
 
 
 

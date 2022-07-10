@@ -1,6 +1,6 @@
 import { Animal } from "./animal";
 
-class Farm {
+export class Farm {
   listOfAnimals: Animal[] = [];
   limit: number;
 
@@ -29,17 +29,17 @@ class Farm {
   }
 }
 
-let farm1 = new Farm(5);
-console.log(farm1.listOfAnimals);
-farm1.breed();
-farm1.breed();
-farm1.breed();
-farm1.breed();
-farm1.breed();
-farm1.breed();
-console.log(farm1.listOfAnimals);
-farm1.sell();
-console.log(farm1.listOfAnimals);
+// let farm1 = new Farm(5);
+// console.log(farm1.listOfAnimals);
+// farm1.breed();
+// farm1.breed();
+// farm1.breed();
+// farm1.breed();
+// farm1.breed();
+// farm1.breed();
+// console.log(farm1.listOfAnimals);
+// farm1.sell();
+// console.log(farm1.listOfAnimals);
 
 
 //console.log(farm1.listOfAnimals);
