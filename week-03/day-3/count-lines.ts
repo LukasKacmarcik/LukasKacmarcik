@@ -6,16 +6,11 @@ import fs from 'fs';
 
 
 export function countLines(filePath: string): number {
-  let content = fs.readFileSync(filePath, 'utf-8');
-  if(!fs.existsSync(filePath)) {
-    return 0;
+  if(fs.existsSync(filePath) === false) {
+    return  0;
   }
+  let content = fs.readFileSync(filePath, 'utf-8');
+  
   let arr: string[] = content.split('\n');
   return arr.length;
-}
-
-try {
-  console.log(countLines('./asset/my-fileee.txt'));
-}catch (error:any) {
-  console.error(0);
 }

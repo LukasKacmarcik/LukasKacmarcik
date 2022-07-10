@@ -1,10 +1,10 @@
 import fs from 'fs';
 
 export function decryptDoubled(pathFile: string) {
-  let messageToDecrypt: string = fs.readFileSync(pathFile, 'utf-8');
-  if(!fs.existsSync(pathFile)) {
+  if(fs.existsSync(pathFile) === false) {
     return 'Unable to read';
   }
+  let messageToDecrypt: string = fs.readFileSync(pathFile, 'utf-8');
   let arr: string[] = [];
   for (let i = 0; i < messageToDecrypt.length * 2 ; i += 2) {
     arr.push(messageToDecrypt.charAt(i));
@@ -14,4 +14,4 @@ export function decryptDoubled(pathFile: string) {
   fs.writeFileSync('output.txt', decryptedMessage);
   return decryptedMessage;
 }
-//decryptDoubled('encrypted.txt');
+decryptDoubled('encrypted.txt');
