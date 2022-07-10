@@ -6,9 +6,9 @@ import fs from 'fs';
 
 
 export function countLines(filePath: string): number {
-  // if(fs.existsSync(filePath) === false) {
-  //   return  0;
-  // }
+  if(fs.existsSync(filePath) === false) {
+    return  0;
+  }
   let content = fs.readFileSync(filePath, 'utf-8');
   
   let arr: string[] = content.split('\n');
