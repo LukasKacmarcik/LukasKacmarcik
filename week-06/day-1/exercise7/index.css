@@ -60,19 +60,19 @@ nav li {
 .wrapper {
   padding-left: 2em;
   padding-right: 2em;
-  padding-top: 0.5em;
   padding-bottom: 2em;
   display: flex;
   width: 100%;
   box-sizing: border-box;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .container {
-  width: 49%;
+  width: 49.60%;
   height: 300px;
+  margin-top: 0.5em;
   background-color: rgb(43, 207, 43);
-  margin: 0.5%;
   align-items: center;
   display: flex;
 }
