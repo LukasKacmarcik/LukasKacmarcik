@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 1080px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  height: 4em;
+  background-color: purple;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  font-size: 1.25rem;
+  text-align: justify;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  width: 5em;
+  height: 2em;
+  background-color: aqua;
+  margin-left: 1em;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+}
+
+.logos li {
+  align-items: center;
+  align-self: flex-end;
+  width: 2.5em;
+  height: 2.5em;
+  background-color: aqua;
+  margin-right: 1em;
+}
+
+#layout {
+  margin: 0 auto;
+  max-width: 1080px;
+  background-color: #eee;
+}
+
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+main {
+
+  width: 100%;
+  background-color: yellow;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+main p {
+  margin: 1em auto;
+  width: 90%;
+}
+
+main ul {
+  margin: 1em auto;
+  width: 100%;
+  display: flex;
+}
+
+main ul li {
+  display: flex;
+  margin: 5%;
+  width: 5em;
+  height: 5em;
+  background-color: red;
+  flex: 1 1 100px;
+}
+
+main div {
+  display: flex;
+}
+
+main div p {
+  margin: 5%;
+}
+
+.sidebar {
+
+  width: 20em;
+  min-width: 20em;
+  background-color: green;
+}
+
+.titles {
+  margin-top: 1em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 90%;
+  margin: 0.5em;
+  height: 3em;
+  background-color: black;
+}
+
+.sidebar p {
+  width: 90%;
+  margin: 1em auto;
+}
+
+li {
+  list-style: none;
+}

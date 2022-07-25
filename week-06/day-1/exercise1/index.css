@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+}
+
+body {
+ justify-content: center;
+}
+
+.container{
+  display: flex;
+  margin: 0 auto;
+  max-width: 400px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item{
+  min-width: 100%;
+  min-height: 100px;
+}
+
+.green{
+  background-color: green;
+}
+
+.yellow{
+  background-color: yellow;
+  order: 1;
+  min-height: 200px;
+}
+
+.purple{
+  background-color: purple;
+}
+
+
