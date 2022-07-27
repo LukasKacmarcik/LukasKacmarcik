@@ -20,11 +20,14 @@
     
     <script>
       const img = document.getElementsByTagName('img')[0];
-    console.log(img.getAttribute('src'));
+      img.setAttribute('src', 'https://www.humanesociety.org/sites/default/files/styles/400x400/public/2019/02/dog-451643.jpg?h=bf654dbc&itok=txM-HxF8');
 
-    img.setAttribute('src', 'https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg');
+      const link = document.getElementsByTagName('a')[0];
+      link.setAttribute('href', 'https://www.greenfoxacademy.sk/kurzy-junior-programatora?gclid=Cj0KCQjwxIOXBhCrARIsAL1QFCYAaU7VX1bGeFUCgbeefFpWRYr69Td0Cf1u1twM0q_rC0CIGCOAxI4aAmzjEALw_wcB');
+
+      const secButton = document.querySelector('.this-one');
+      secButton.textContent = "Don't click me!";
+      secButton.setAttribute('style', 'pointer-events: none;');
     </script>
-
-
   </body>
 </html>
