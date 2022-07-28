@@ -23,7 +23,11 @@
     <%cocktails.forEach((item, index) => { %> 
       <li class = alcohols>
         <div class = "description">
-          <div class = "name"><%= item.name%></div>
+          <% if (item.isAlcoholic) { %> 
+          <div class = "name"><%= item.name%> . . . (is alcoholic)</div>
+          <% } else { %>
+            <div class = "name"><%= item.name%> . . . (is not alcoholic)</div>
+            <% }; %> 
           <div class = "ingredients"><%= item.contains%></div>
         </div>
         <div class = "price" ><%= item.price%></div>
