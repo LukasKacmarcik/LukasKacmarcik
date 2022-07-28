@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+}
+
+div {
+  margin: 5px;
+}
+
+.actions button {
+  display: block;
+  width: 65px;
+  height: 16.5px;
+}
+
+.tab select {
+  width: 65px;
+  min-height: 65px;
+ overflow-y: auto;
+}
