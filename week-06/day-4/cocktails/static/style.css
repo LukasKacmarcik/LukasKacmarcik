@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+#selection {
+  display: flex;
+  list-style: none;
+}
+
+#selection li {
+  color: rgb(71, 15, 124);
+  font-size: 18px;
+  margin: 5px;
+  text-transform: uppercase;
+  font-weight: 900;
+} 
+
+
+#menu {
+  background-color: antiquewhite;
+}
+
+#placeholder {
+  display: flex;
+  justify-content: space-between;
+}
+
+#placeholder div {
+  color: white;
+  background-color: black;
+  text-align: center;
+}
+
+.p.one {
+  width: 70%;
+  color: brown;
+}
+
+.p.two {
+  width: 29.5%;
+}
+
+.alcohols {
+  display: flex;
+  background-color: azure;
+  justify-content: space-between;
+}
+
+.description {
+  width: 70%;
+
+}
+
+.price {
+  width: 29.5%;
+  background-color: inherit;
+  text-align: center;
+  line-height: 200%;
+}
+ 
+.alcohols:nth-child(even) > div { 
+  background-color: rgb(144, 238, 144); 
+}
+
+.name, .ingredients, .price {
+  font-size: x-large;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Coctails</h1>
+  <ul id = "selection">
+    <li>All</li>
+    <%alcohols.forEach(item => { %>
+      <li><%= item%></li>
+    <% }) %>
+  </ul>
+
+  <ul id = "menu">
+    <li id = "placeholder" >
+      <div class = "p one">NAME</div>
+      <div class = "p two">PRICE</div>
+    </li>
+
+    <%cocktails.forEach((item, index) => { %> 
+      <li class = alcohols>
+        <div class = "description">
+          <div class = "name"><%= item.name%></div>
+          <div class = "ingredients"><%= item.contains%></div>
+        </div>
+        <div class = "price" ><%= item.price%></div>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html> 
