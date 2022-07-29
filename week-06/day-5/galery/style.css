@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+#headline {
+  top: 30px;
+  position: absolute;
+  font-size: 72px;
+}
+
 body {
 height: 852px;
 background-color: antiquewhite;
@@ -115,13 +121,6 @@ main {
   transition-property: position 0.7s;
 }
 
-#thumbnail::before{
-  position: absolute;
-  content: '';
-  width: 30px;
-  height: 30px;
-  bottom: -10px;
-  background: white;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
+#thumbnail img.selected {
+  background-color: rgb(122, 201, 4);
 }

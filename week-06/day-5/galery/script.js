@@ -41,7 +41,8 @@ let thumbnailImages = thumbnail.children;
 
 ///seting main////////////////
 let currentIndex = 0;
-let previousIndex = -1;
+let previousIndex = 0;
+
 let mainPicture = document.getElementById("main-picture");
 let title = document.getElementById("img-title")
 let description = document.getElementById('description-text');
