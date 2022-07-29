@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>jozo</h1>
+  <% for (let i = 0; i < forecasts.length; i++) { %> 
+    <div class = "tab">
+      <div class = "part left">
+        <h1><%= forecasts[i].city%></h1>
+        <p><%= forecasts[i].location%></p>
+      </div>
+      <div class = "part right">
+        <h1><%= forecasts[i].weather[0].temp%></h1>
+        <img src="/img/<%=forecasts[i].weather[0].icon%>.png" alt="weather icon">
+      </div>
+    </div>
+  <% }; %> 
+</body>
+</html> 

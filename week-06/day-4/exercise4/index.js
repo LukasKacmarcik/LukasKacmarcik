@@ -5,10 +5,17 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  const todos = ['get up', 'survive', 'go back to bed'];
-  res.render('home', {todos: todos})
+  res.render('home', {data: 'Guest'})
 })
+
+app.get('/:name', (req, res) => {
+  const data = {name: req.params.name};
+  res.render('home', {data: req.params.name})
+})
+
 
 app.listen(3000, () => {
   console.log('server is lisening on 3000');
 });
+
+const todos = ['get up', 'survive', 'go back to bed'];

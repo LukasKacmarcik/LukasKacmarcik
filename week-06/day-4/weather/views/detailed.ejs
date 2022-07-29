@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Detailed</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="test img"></div>
+  <h1><%= forecast.city %></h1>
+  <div id = "container">
+    <% for (let i = 0; i < forecast.weather.length; i++) { %>
+      <div class="tab">
+        <img src="/img/<%=forecast.weather[i].icon%>.png" alt="weather icon">
+        <h1><%=forecast.weather[i].temp %></h1>
+        <p><%=forecast.weather[i].message %></p>
+      </div>
+      <% }; %> 
+  </div>
+</body>
+</html> 
