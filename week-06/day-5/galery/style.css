@@ -4,8 +4,7 @@
 }
 
 #headline {
-  top: 30px;
-  position: absolute;
+  margin-top: 4.5%;
   font-size: 72px;
 }
 
@@ -18,7 +17,7 @@ align-items: center;
 }
 
 main {
-  margin-top: 11%;
+  margin-top: 4.5%;
   width: 960px;
   height: 450px;
   background-color: aliceblue;
