@@ -87,3 +87,13 @@ function rightArrowFn() {
   setCurrentPicture();
   previousIndex = currentIndex;
 };
+
+document.addEventListener("keydown", (e) => {
+  switch (e.keyCode) {
+    case 37:
+      leftArrowFn();
+      break;
+    case 39:
+      rightArrowFn();
+  }
+});
