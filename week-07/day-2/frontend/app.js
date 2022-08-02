@@ -41,12 +41,31 @@ app.get('/appenda/:appendable', (req, res) => {
 
 app.post('/dountil/:operation', (req, res) => {
   if (req.params.operation == 'sum') {
-    console.log(req.body);
-    res.send({operation: req.params.operation, input: req.body});
-  } else {
-    res.status(404);
+    console.log(sum(req.body.until));
+    res.send({result: sum(req.body.until)});
+  } else if (req.params.operation == 'factor') {
+    res.send({result: factor(req.body.until)});
+  } else if (typeof req.body.until != typeof 5) {
+    res.send({error: 'Please provide a number!'});
   }
 });
+
+
+const sum = (number) => {
+  if (number <= 0) {
+    return 0;
+  } else {
+    return number + sum(number - 1);
+  }
+};
+
+const factor = (number) => {
+  if (number <= 1) {
+    return 1;
+  } else {
+    return number * factor(number - 1);
+  }
+};
 
 app.listen(3000, () => {
   console.log('Server is on lisening to port 3000');
