@@ -28,3 +28,11 @@ describe("Animal", () => {
     expect(bear.thirst).toBe(51);
   });
 });
+
+export function indexOf(value, array) {
+  if (!array.contain(value)) {
+    return -1;
+  } else {
+    return array.indexOf(value);
+  }
+}
