@@ -1,0 +1,34 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 800px;
+  background-color: antiquewhite;
+  font-size: xx-large;
+}
+
+#myButton {
+  margin-right:40%;
+}
+
+#left {
+  background-color: aqua;
+  width: 300px;
+  /* min-height: 400px; */
+  margin-right: 5px;
+  display: inline-block;
+}
+
+#right {
+  background-color: aqua;
+  width: 300px;
+  /* min-height: 400px; */
+  display: inline-block;
+}
+
+#content {
+  display: flex;
+}
+
+#left li:hover {
+  cursor: pointer;
+}
