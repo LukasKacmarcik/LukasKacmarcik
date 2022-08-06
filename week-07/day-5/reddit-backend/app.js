@@ -52,24 +52,23 @@ app.post('/posts', (req, res) => {
   })
 });
 ////VOTE////
+// app.patch('/posts/:id/upvote', (req, res) => {
+//   const sql = `UPDATE posts SET score = score + 1 WHERE id = ?;`
+//   connection.query(sql, req.params.id, (error, results) => {
+//     if (error) {
+//       console.log(error);
+//       res.status(500).send({ message: 'Internal Problem with database' })
+//     }
 
-app.patch('/posts/:id/upvote', (req, res) => {
-  const sql = `UPDATE posts SET score = score + 1 WHERE id = ?;`
-  connection.query(sql, req.params.id, (error, results) => {
-    if (error) {
-      console.log(error);
-      res.status(500).send({ message: 'Internal Problem with database' })
-    }
-
-    const sql = 'SELECT * FROM posts WHERE id = ?'
-    connection.query(sql, req.params.id, (error, results) => {
-      if (error) {
-        res.status(500).send({ message: 'Internal problem with database2' })
-      }
-      res.status(200).send(results);
-    })
-  })
-})
+//     const sql = 'SELECT * FROM posts WHERE id = ?'
+//     connection.query(sql, req.params.id, (error, results) => {
+//       if (error) {
+//         res.status(500).send({ message: 'Internal problem with database2' })
+//       }
+//       res.status(200).send(results);
+//     })
+//   })
+// })
 
 app.patch('/posts/:id/downvote', (req, res) => {
   const sql = `UPDATE posts SET score = score - 1 WHERE id = ?;`
@@ -96,3 +95,26 @@ app.listen(PORT, (error) => {
   }
   console.log('Reddit is lisening at 3000');
 });
+
+///VOTE 2.0///
+app.patch('/posts/:user/:id/upvote', (req, res) => {
+  const sql = `SELECT *, votes.user_id AS vot_user_id, votes.post_id AS vot_post_id
+                FROM posts
+                JOIN users ON posts.user_id=users.user_id
+                LEFT JOIN votes ON votes.user_id=users.user_id
+                WHERE users.user_id = ? AND posts.id = ?`
+  console.log(req.params.user);
+  console.log(req.params.id);
+  connection.query(sql, [req.params.user, req.params.id], (error, results) => {
+    console.log(results);
+    if (error) {
+      res.status(500).send({ message: 'Cannot upvote something went wrong' })
+    }
+    if (results[0].value != null) {
+      return;
+    }
+
+    const sql = `INSERT INTO votes(user_id, post_id, value)
+                        VALUES (${req.params.user}, ${req.params.id}, 1);`
+  })
+})

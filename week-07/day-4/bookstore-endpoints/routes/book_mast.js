@@ -19,7 +19,13 @@ function getAllBooksNames(req, res) {
 }
 
 function getAllBooks(req, res) {
-  let filter = `${Object.keys(req.query).length != 0 ? 'WHERE ' : ''}${req.query.title ? `${`book_name = "${req.query.title}"`} AND ` : ''}${req.query.author ? `${`aut_name = "${req.query.author}"`} AND ` : ''}${req.query.category ? `${`cate_descrip = "${req.query.category}"`} AND ` : ''}${req.query.publisher ? `${`pub_name = "${req.query.publisher}"`} AND ` : ''}${req.query.plt ? `${`book_price < "${req.query.plt}"`} AND ` : ''} ${req.query.pgt ? `${`book_price > "${req.query.pgt}"`} AND ` : ''}`
+  let filter = `${Object.keys(req.query).length != 0 ? 'WHERE ' : ''}
+    ${req.query.title ? `${`book_name = "${req.query.title}"`} AND ` : ''}
+    ${req.query.author ? `${`aut_name = "${req.query.author}"`} AND ` : ''}
+    ${req.query.category ? `${`cate_descrip = "${req.query.category}"`} AND ` : ''}
+    ${req.query.publisher ? `${`pub_name = "${req.query.publisher}"`} AND ` : ''}
+    ${req.query.plt ? `${`book_price < "${req.query.plt}"`} AND ` : ''}
+    ${req.query.pgt ? `${`book_price > "${req.query.pgt}"`} AND ` : ''}`
   filter = filter.slice(0, -5);
 
   const sql = `SELECT book_name AS Title,
