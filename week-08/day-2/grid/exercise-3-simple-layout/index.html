@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      body {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 0;
+      }
+
+      #layout {
+        margin: 0 auto;
+        width: 1000px;
+        border: 3px solid black;
+        border-radius: 30px;
+        /* border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px; */
+      }
+
+      #layout::before {
+        content: ".";
+        font-size: xx-large;
+        visibility: hidden;
+      }
+
+      nav {
+        background-color: blueviolet;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        border-top: 3px solid black;
+      }
+
+      nav div {
+        background-color: aqua;
+        height: 60px;
+        margin: 10px;
+      }
+
+      nav div:nth-child(1) {
+        margin-left: 50px;
+      }
+
+      nav div:nth-child(odd) {
+        width: 60px;
+      }
+
+      nav div:nth-child(even) {
+        width: 80px;
+      }
+
+      main {
+        margin: 10px 50px 10px 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 200px);
+        grid-gap: 10px;
+      }
+
+      #sidebar {
+        background-color: greenyellow;
+        grid-row: 1/4;
+      }
+
+      #content {
+        background-color: yellow;
+        grid-column: 2/4;
+        grid-row: 1/4;
+      }
+
+      footer {
+        background-color: antiquewhite;
+        grid-column: 1/4;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <nav>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </nav>
+      <main>
+        <div id="sidebar"></div>
+        <div id="content"></div>
+        <footer></footer>
+      </main>
+    </div>
+  </body>
+</html>
