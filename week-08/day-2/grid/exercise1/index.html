@@ -3,6 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        display: grid;
+        background-color: blueviolet;
+        height: 150px;
+        width: 100%;
+        grid-template-columns: 1fr 3fr 1fr;
+        align-items: center;
+      }
+      .yellow {
+        background-color: yellow;
+        height: 130px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .green {
+        background-color: greenyellow;
+        height: 130px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div id="container">
+      <div class="yellow"></div>
+      <div class="green"></div>
+      <div class="yellow"></div>
+    </div>
+  </body>
 </html>
