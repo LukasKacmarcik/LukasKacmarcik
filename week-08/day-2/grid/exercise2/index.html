@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #layout {
+        background-color: black;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-areas:
+          "one container container"
+          "two container container"
+          "three four five";
+      }
+
+      .purple {
+        background-color: purple;
+        min-height: 180px;
+      }
+
+      .one {
+        grid-area: one;
+      }
+      .container {
+        grid-area: container;
+        background-color: green;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+      }
+      .container div {
+        background-color: yellow;
+        height: 80%;
+        width: 70%;
+      }
+      .two {
+        grid-area: two;
+      }
+      .three {
+        grid-area: three;
+      }
+      .four {
+        grid-area: four;
+      }
+      .five {
+        grid-area: five;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <div class="purple one"></div>
+      <div class="container">
+        <div></div>
+      </div>
+      <div class="purple two"></div>
+      <div class="purple three"></div>
+      <div class="purple four"></div>
+      <div class="purple five"></div>
+    </div>
+  </body>
+</html>
