@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click me</button>
+    <h1></h1>
+    <script>
+      const button = document.querySelector("button");
+      const h1 = document.querySelector("h1");
+
+      button.addEventListener("click", (e) => {
+        setTimeout(() => {
+          h1.textContent = "Two seconds elapsed";
+          //////EXTRA STUFF BELOW///////
+          console.log("showed");
+          setTimeout(() => {
+            h1.textContent = "";
+            console.log("hidden");
+          }, 2000);
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>
