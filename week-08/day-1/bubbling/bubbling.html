@@ -44,82 +44,50 @@
       //  - attach only two event listeners to the nav element
       //    - one for navigation
       //    - one for zooming
-      const inspector = document.querySelector(".img-inspector");
-      const nav = document.querySelector("nav");
-      nav.addEventListener("click", (e) => {
-        const inspChildrens = document.querySelectorAll("button");
 
-        let backgroundX = window
-          .getComputedStyle(inspector)
-          .getPropertyValue("background-position-x");
-        let backgroundY = window
-          .getComputedStyle(inspector)
-          .getPropertyValue("background-position-y");
+      const navPanel = document.getElementsByTagName("nav")[0];
+      const imgInspector = document.getElementsByClassName("img-inspector")[0];
+      let backgroundX = 0;
+      let backgroundY = 0;
+      let backgroundSize = 200;
 
-        inspChildrens.forEach((button) => {
-          if (
-            button == e.target &&
-            e.target.getAttribute("data-action") == "move"
-          ) {
-            switch (e.target.getAttribute("data-direction")) {
-              case "up":
-                inspector.setAttribute(
-                  "style",
-                  `background-position-y: ${parseInt(backgroundY) - 10}px;`
-                );
-                break;
-              case "down":
-                inspector.setAttribute(
-                  "style",
-                  `background-position-y: ${parseInt(backgroundY) + 10}px;`
-                );
-                break;
-              case "left":
-                inspector.setAttribute(
-                  "style",
-                  `background-position-x: ${parseInt(backgroundX) - 10}px;`
-                );
-                break;
-              case "right":
-                inspector.setAttribute(
-                  "style",
-                  `background-position-x: ${parseInt(backgroundX) + 10}px;`
-                );
-                break;
-            }
-          }
-        });
-      });
+      function moveImg(direction) {
+        switch (direction) {
+          case "up":
+            backgroundY += 10;
+            break;
+          case "down":
+            backgroundY -= 10;
+            break;
+          case "left":
+            backgroundX += 10;
+            break;
+          case "right":
+            backgroundX -= 10;
+            break;
+        }
+        imgInspector.style.backgroundPositionY = `${backgroundY}px`;
+        imgInspector.style.backgroundPositionX = `${backgroundX}px`;
+      }
 
-      nav.addEventListener("click", (e) => {
-        const inspChildrens = document.querySelectorAll("button");
+      function zoomImg(direction) {
+        switch (direction) {
+          case "out":
+            backgroundSize -= 10;
+            break;
+          case "in":
+            backgroundSize += 10;
+            break;
+        }
+        imgInspector.style.backgroundSize = `${backgroundSize}%`;
+      }
 
-        let backgroundSize = window
-          .getComputedStyle(inspector)
-          .getPropertyValue("background-size");
-
-        inspChildrens.forEach((button) => {
-          if (
-            button == e.target &&
-            e.target.getAttribute("data-action") == "zoom"
-          ) {
-            switch (e.target.getAttribute("data-direction")) {
-              case "in":
-                inspector.setAttribute(
-                  "style",
-                  `background-size: ${parseInt(backgroundSize) + 10}%;`
-                );
-                break;
-
-              case "out":
-                inspector.setAttribute(
-                  "style",
-                  `background-size: ${parseInt(backgroundSize) - 10}%;`
-                );
-                break;
-            }
-          }
-        });
+      navPanel.addEventListener("click", (e) => {
+        if (e.target.getAttribute("data-action") === "move") {
+          moveImg(e.target.getAttribute("data-direction"));
+        } else {
+          zoomImg(e.target.getAttribute("data-direction"));
+        }
       });
     </script>
   </body>
