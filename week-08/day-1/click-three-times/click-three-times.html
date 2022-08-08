@@ -1,0 +1,41 @@
+<!-- Create a simple HTML document with one button.
+If the user clicks the button 3 times, and 5 seconds is already elapsed since the page is loaded, a text should appear under the button:
+5 seconds elapsed and clicked 3 times
+If the user starts clicking before the first 5 seconds, nothing should be printed -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click here</button>
+    <h1></h1>
+    <script>
+      const button = document.querySelector("button");
+      const h1 = document.querySelector("h1");
+      let timer = 0;
+      let clicks = 0;
+      window.addEventListener("load", () => {
+        const interval = setInterval(() => {
+          timer += 1;
+          ////ADDED EXTRA FUNCTIONALITY////
+          console.log(timer);
+          if (timer == 10) {
+            clearInterval(interval);
+          }
+          ///////////////////////////
+        }, 1000);
+      });
+
+      button.addEventListener("click", (e) => {
+        if (timer >= 5) {
+          clicks++;
+        }
+        if (clicks == 3) {
+          h1.textContent = "5 seconds elapsed and clicked 3 times";
+        }
+      });
+    </script>
+  </body>
+</html>
