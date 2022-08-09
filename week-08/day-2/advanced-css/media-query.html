@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: flex;
+      }
+      .side {
+        width: 200px;
+        height: 200px;
+      }
+
+      .one {
+        background-color: green;
+      }
+
+      .center {
+        height: 200px;
+        background-color: yellow;
+        flex-grow: 1;
+      }
+
+      .two {
+        background-color: purple;
+      }
+
+      @media screen and (max-width: 768px) {
+        #container {
+          display: block;
+        }
+
+        .side {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="side one"></div>
+      <div class="center"></div>
+      <div class="side two"></div>
+    </div>
+  </body>
+</html>
