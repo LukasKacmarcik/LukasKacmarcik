@@ -11,6 +11,7 @@ const speed = document.querySelector('.speed')
 let rate = 0;
 let numOfLollypops = 0;
 let count = 0;
+
 const updateRate = () => {
   rate = Math.floor(numOfLollypops / 10);
   speed.textContent = rate;
