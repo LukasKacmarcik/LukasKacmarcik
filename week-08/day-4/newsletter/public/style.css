@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  background: rgb(255,56,154);
+background: linear-gradient(45deg, rgba(255,56,154,1) 0%, rgba(218,148,50,1) 100%);
+font-size: xx-large;
+}
+
+form {
+  width: 440px;
+  margin: 200px auto;
+  background-color: rgb(231, 230, 240);
+  border-radius: 50px;
+}
+
+input {
+  display: block;
+  margin: 20px;
+  padding: 10px 200px 10px 10px;
+}
+
+label {
+  margin-left: 20px;
+}
+
+button {
+  margin: 20px 50%;
+  width: 100px;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgb(200,88,27);
+  background: linear-gradient(45deg, rgba(200,88,27,1) 0%, rgba(97,228,101,1) 50%, rgba(52,58,212,1) 100%);
+  border-radius: 25px;
+  border: none;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+h1 {
+  font-size: xx-large;
+  margin: 20px;
+}
