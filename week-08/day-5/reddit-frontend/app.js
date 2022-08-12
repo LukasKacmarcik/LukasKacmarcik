@@ -1,27 +1,25 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-
-
 const PORT = process.env.PORT;
 
 const express = require('express');
 const app = express();
 app.use(express.json());
+app.set('view engine', 'ejs');
 
-app.set(express.static('public'))
+app.use(express.static('public'))
 
 const postRouter = require('./routes/posts.js');
-/////GET////
-app.use('/heloo', postRouter);
-app.use('/posts', postRouter);
-////ADD////
-app.post('/posts', postRouter);
-////VOTE////
-app.patch('/posts', postRouter);
-app.patch('/posts', postRouter);
-////UPDATE////
-app.patch('/posts', postRouter);
+
+app.use('/api/posts', postRouter);
+app.get('/post', (req, res) => {
+  res.render('newPost');
+})
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
 
 
 app.listen(PORT, (error) => {
