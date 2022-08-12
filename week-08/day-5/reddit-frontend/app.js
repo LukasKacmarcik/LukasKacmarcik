@@ -9,6 +9,8 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+app.set(express.static('public'))
+
 const postRouter = require('./routes/posts.js');
 /////GET////
 app.use('/heloo', postRouter);
