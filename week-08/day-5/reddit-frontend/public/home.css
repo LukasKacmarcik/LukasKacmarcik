@@ -1,3 +1,149 @@
-a {
-  color: green;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  background-color: white;
+}
+
+body {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: rgb(238, 238, 238);
+}
+
+header {
+  width: 100%;
+  height: 300px;
+  background-image: url('img/header-img.jpg');
+  background-repeat: no-repeat;
+}
+
+#layout {
+  margin: 25px 15px;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 10px;
+}
+
+.post {
+  background-color: white;
+  border-bottom: 2px solid #eee;
+  display: grid;
+  grid-template-columns: 10% 1fr;
+}
+
+.side {
+
+}
+
+.arrup {
+  background-image: url('./img/upvote.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  min-height: 25px;
+  background-size: 40%;
+  margin-top: 20%;
+}
+
+.arrup:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.score {
+  text-align: center;
+  line-height: 200%;
+}
+
+.arrdown {
+  background-image: url('./img/downvote.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  min-height: 25px;
+  background-size: 40%;
+}
+
+.arrdown:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#submitNewPost {
+  display: block;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-right:5px;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 10px;
+  background-color: rgb(74, 163, 223);
+  text-align: center;
+}
+
+h3 {
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px 10px;
+  margin-right: 5px;
+}
+
+h3 span {
+  color: rgb(74, 163, 223);
+}
+
+#addPost p {
+  background-color: rgb(245, 245, 245);
+  margin-top: 10px;
+  padding: 10px 10px;
+  margin-right: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#addPost ul {
+  background-color: rgb(245, 245, 245);
+  padding: 10px 10px;
+  margin-right: 5px;
+}
+
+#addPost li {
+  margin-left: 20px;
+}
+
+.content {
+}
+
+.content .title {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: rgb(54, 52, 51);
+  display: block;
+  margin: 10px 0px;
+}
+
+.date {
+  display: inline;
+}
+
+.autor {
+  color: rgb(81, 151, 198);
+  display: inline;
+}
+
+.content .actions {
+  display: flex;
+  margin: 5px 0px;
+}
+
+.content .update {
+  text-decoration: none;
+  color: rgb(54, 52, 51);
+  margin-right: 10px;
+}
+
+.content .delete {
+  color: rgb(54, 52, 51);
 }

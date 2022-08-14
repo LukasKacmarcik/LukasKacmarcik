@@ -6,8 +6,8 @@ const connection = require('../reddit.js');
 // router.get('/', printHello);
 router.get('/', getAllPosts);
 router.post('/', addPost);
-router.patch('/:id/upvote', upvotePost);
-router.patch('/:id/downvote', downvotePost);
+router.get('/:id/upvote', upvotePost);
+router.get('/:id/downvote', downvotePost);
 router.patch('/update/:post_id', updatePost);
 router.delete('/delete/:post_id', deletePost);
 
