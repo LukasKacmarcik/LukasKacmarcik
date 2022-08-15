@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="newPost.css" />
+  </head>
+  <body>
+    <header>
+      <h1>SPACE</h1>
+      <h2>POST TO /R/SPACE</h2>
+    </header>
+    <div id="layout">
+      <form action="/api/posts/" method="post">
+        <input type="text" id="user_id" name="user_id" value="100" />
+        <label for="title">Title</label><br />
+        <input type="text" id="title" name="title" required /><br />
+        <label for="url">Url</label><br />
+        <input type="url" id="url" name="url" required /><br />
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+    <script src="./newPost.js"></script>
+  </body>
+</html>

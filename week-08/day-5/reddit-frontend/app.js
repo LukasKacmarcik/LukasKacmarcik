@@ -13,9 +13,11 @@ app.use(express.static('public'))
 const postRouter = require('./routes/posts.js');
 
 app.use('/api/posts', postRouter);
+
 app.get('/post', (req, res) => {
   res.render('newPost');
 })
+
 app.get('/', (req, res) => {
   res.render('home');
 });

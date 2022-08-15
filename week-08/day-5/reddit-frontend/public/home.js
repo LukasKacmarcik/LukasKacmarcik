@@ -90,11 +90,10 @@ function createPosts(posts) {
 };
 
 function upVote(e) {
-  console.log(e.target.nextSibling.textContent);
-  console.log(typeof e.currentTarget.dataset.postid);
   fetch(`/api/posts/${e.currentTarget.dataset.postid}/upvote`)
     .then(response => {
       e.target.nextSibling.textContent = parseInt(e.target.nextSibling.textContent) + 1;
+      e.target.style.backgroundImage = "url('./img/upvoted.png')";
     })
     .catch((error) => {
       console.log(error);
@@ -102,11 +101,10 @@ function upVote(e) {
 };
 
 function downVote(e) {
-  console.log(e.target.previousSibling.textContent);
-  console.log(typeof e.currentTarget.dataset.postid);
   fetch(`/api/posts/${e.currentTarget.dataset.postid}/downvote`)
     .then(response => {
       e.target.previousSibling.textContent = parseInt(e.target.previousSibling.textContent) - 1;
+      e.target.style.backgroundImage = "url('./img/downvoted.png')";
     })
     .catch((error) => {
       console.log(error);

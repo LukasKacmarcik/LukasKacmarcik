@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
+router.use(express.urlencoded({ extended: false }))
 const connection = require('../reddit.js');
 
 // router.get('/', printHello);
@@ -101,7 +102,7 @@ function addPost(req, res) {
         res.status(404).json({ message: 'Post with the given id was not found' })
       }
 
-      res.status(201).json(results);
+      res.status(201).redirect('/');
     })
   })
 };
