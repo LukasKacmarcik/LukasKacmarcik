@@ -1,19 +1,22 @@
-// <!-- <div id="post">
-//   <div id="side">
-//     <div id="uparow"></div>
-//     <div id="score"></div>
-//     <div id="downarow"></div>
-//   </div>
-//   <div id="content">
-//     <a id="title" href="#"></a>
-//     <div id="date"></div>
-//     <div id="autor_id"></div>
-//     <button id="update"></button>
-//     <button id="remove"></button>
-//   </div>
-// </div> -->
+console.log("userId is in localStorage");
 const body = document.querySelector('body');
 const postS = document.querySelector('#posts');
+const userId = localStorage.getItem('userId');
+
+let user;
+
+fetch(`/api/posts/getuser/${userId}`)
+  .then(result => result.json())
+  .then(result => {
+    return user = result.name;
+  })
+  .then(name => {
+    const h1 = document.createElement('h1');
+    const layout = document.querySelector('#layout');
+    h1.textContent = `You are: ${name}`;
+    layout.before(h1);
+  })
+
 
 fetch('http://localhost:3000/api/posts')
   .then(response => response.json())
@@ -60,11 +63,17 @@ function createPosts(posts) {
     const newActions = document.createElement('div');
     newActions.className = 'actions';
     const newUpdate = document.createElement('a');
-    newUpdate.setAttribute('href', `#`);
     newUpdate.className = 'update';
+    if (userId == newPost.dataset.user_id || userId == 1) {
+      newUpdate.setAttribute('href', `/update?postid=${newPost.dataset.postid}`);
+      newUpdate.classList.add('owned');
+    }
     newUpdate.textContent = 'Update'
     const newDelete = document.createElement('p');
     newDelete.className = 'delete';
+    if (userId == newPost.dataset.user_id || userId == 1) {
+      newDelete.classList.add('owned');
+    }
     newDelete.textContent = 'Delete'
     newContent.appendChild(newTitle);
     newContent.appendChild(newDate);
@@ -85,8 +94,22 @@ function createPosts(posts) {
       if (e.target.className == 'arrdown') {
         downVote(e);
       };
+
+      if (e.target.classList.contains('delete') && (userId == newPost.dataset.user_id || userId == 1)) {
+        deletePost(e);
+      }
     })
   });
+};
+
+function deletePost(e) {
+  console.log(e.currentTarget.dataset.postid);
+  fetch(`/api/posts/delete/${e.currentTarget.dataset.postid}`, {
+    method: "delete"
+  })
+    .then(response => {
+      window.location.reload();
+    })
 };
 
 function upVote(e) {

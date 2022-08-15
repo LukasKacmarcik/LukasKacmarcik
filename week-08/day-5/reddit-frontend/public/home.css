@@ -158,3 +158,18 @@ h3 span {
 .content .delete {
   color: rgb(54, 52, 51);
 }
+
+.content a.owned {
+  color: green;
+}
+
+.content p.owned {
+  color: red;
+}
+
+.owned:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.5s;
+  background-color: rgb(241, 236, 236);
+}
