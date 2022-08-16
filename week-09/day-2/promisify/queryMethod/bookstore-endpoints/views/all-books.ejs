@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        font-size: xx-large;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th>CATEGORY</th>
+        <th>PUBLISHER</th>
+        <th>PRICE</th>
+      </tr>
+      <% for (let i = 0; i < result.length; i++) { %>
+      <tr>
+        <td><%=result[i].Title%></td>
+        <td><%=result[i].Author%></td>
+        <td><%=result[i].Category%></td>
+        <td><%=result[i].Publisher%></td>
+        <td><%=result[i].Price%></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
