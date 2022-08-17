@@ -11,4 +11,12 @@ function loadScript(src, callback) {
 // usage:
 // loadScript('path/script.js', (err, script) => {...})
 
-loadScript()
+loadScript('test.js');
+
+function promisifyLoadScript(src) {
+  return new Promise((resolve, reject) => {
+    loadScript(src, (err, script) => {
+      if ()
+    })
+  })
+}

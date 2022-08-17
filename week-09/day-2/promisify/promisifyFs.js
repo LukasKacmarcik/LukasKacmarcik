@@ -3,17 +3,29 @@ const util = require('util');
 
 const asyncReadFile = util.promisify(fs.readFile);
 
+// function promisifyReadFile(filePath) {
+//   return new Promise((resolve, reject) => {
+//     fs.readFile(filePath, (error, data) => {
+//       if (error) {
+//         console.error(error);
+//         reject('Error while trying to read file');
+//         return;
+//       } else {
+//         return resolve(data);
+//       }
+//     })
+//   })
+// };
+
+//// VERSION 2.0 ////////
 function promisifyReadFile(filePath) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, (error, data) => {
-      if (error) {
-        console.error(error);
-        reject('Error while trying to read file');
-        return;
-      } else {
-        return resolve(data);
-      }
-    })
+  fs.readFile(filePath, (error, data) => {
+    if (error) {
+      console.error(error);
+      return Promise.reject('Error while trying to read file');
+    } else {
+      return Promise.resolve(data);
+    }
   })
 };
 
@@ -33,7 +45,4 @@ async function logContent() {
   const string = data.toString();
   console.log(string);
 };
-logContent()
-  .then(() => {
-    console.log('Huraaay');
-  })
+logContent();

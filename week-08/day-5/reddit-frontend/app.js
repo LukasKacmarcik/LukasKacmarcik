@@ -27,8 +27,6 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-
-
 app.listen(PORT, (error) => {
   if (error) {
     console.log(error);
