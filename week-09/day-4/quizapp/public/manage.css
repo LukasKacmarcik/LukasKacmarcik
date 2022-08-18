@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(236, 240, 241);
+}
+
+#layout {
+  width: 800px;
+  margin: 200px auto;
+}
+
+#manPart {
+  background-color: rgb(255, 255, 255);
+  font-size: large;
+}
+
+.question {
+  display:flex;
+  justify-content: space-between;
+  text-align: start;
+  margin: 5px 70px;
+  border-bottom: 1px solid black;
+  padding: 5px 0px;
+}
+
+.questionContent {
+  margin-right: 100px;
+}
+
+.delete {
+  align-self: center;
+  color: rgb(231, 76, 92);
+}
