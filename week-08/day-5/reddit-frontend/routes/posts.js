@@ -131,7 +131,7 @@ function addPost(req, res) {
 };
 
 function getAllPosts(req, res) {
-  const sql = 'SELECT * FROM posts';
+  const sql = 'SELECT * FROM posts JOIN users ON posts.user_id=users.user_id ORDER BY score DESC;';
   connection.query(sql, (error, results) => {
     if (error) {
       console.log(error);

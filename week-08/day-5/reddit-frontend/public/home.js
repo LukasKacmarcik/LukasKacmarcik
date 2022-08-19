@@ -58,7 +58,7 @@ function createPosts(posts) {
     newDate.textContent = `Submitted ${post.timestamp} by `;
     newDate.className = 'date';
     const newAutor = document.createElement('p');
-    newAutor.textContent = post.user_id;
+    newAutor.textContent = post.name;
     newAutor.className = 'autor';
     const newActions = document.createElement('div');
     newActions.className = 'actions';
