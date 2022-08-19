@@ -9,17 +9,20 @@ body {
 }
 
 #layout {
-  width: 800px;
+  width: 1400px;
   margin: 200px auto;
 }
 
 #content {
   background-color: rgb(255, 255, 255);
   margin-top: 20px;
+  padding: 5vh 0;
+  border-radius: 25px;
 }
 
 #question {
-  line-height: 60px;
+  line-height: 30px;
+  margin: 20px 20px;
 }
 
 .answer {
@@ -30,16 +33,12 @@ body {
   border-radius: 25px;
 }
 
-span {
-  visibility: hidden;
-  min-height: 5px;
-}
-
 #link {
   margin-top: 15px;
   display: block;
   text-decoration: none;
   font-size: large;
+  color: orange;
 }
 
 .selected {

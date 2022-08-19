@@ -12,6 +12,58 @@
         <div id="questions"></div>
       </div>
       <h1>Create new questions</h1>
+      <div id="addQuestion">
+        <form form onsubmit="return false">
+          <input
+            type="text"
+            id="inputQuestion"
+            placeholder="Type your question here"
+            required
+          />
+          <h2>Answers</h2>
+          <div class="answer one">
+            <h2>#1</h2>
+            <input
+              id="answer1"
+              type="text"
+              placeholder="Type your answer here"
+              required
+            />
+            <input type="radio" name="correctAnswer" required />
+          </div>
+          <div class="answer two">
+            <h2>#2</h2>
+            <input
+              id="answer2"
+              type="text"
+              placeholder="Type your answer here"
+              required
+            />
+            <input type="radio" name="correctAnswer" />
+          </div>
+          <div class="answer three">
+            <h2>#3</h2>
+            <input
+              id="answer3"
+              type="text"
+              placeholder="Type your answer here"
+              required
+            />
+            <input type="radio" name="correctAnswer" />
+          </div>
+          <div class="answer four">
+            <h2>#4</h2>
+            <input
+              id="answer4"
+              type="text"
+              placeholder="Type your answer here"
+              required
+            />
+            <input type="radio" name="correctAnswer" />
+          </div>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
     </div>
     <script src="./manage.js"></script>
   </body>

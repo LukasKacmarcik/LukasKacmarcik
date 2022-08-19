@@ -9,13 +9,15 @@ body {
 }
 
 #layout {
-  width: 800px;
-  margin: 200px auto;
+  width: 1400px;
+  margin: 100px auto;
 }
 
 #manPart {
   background-color: rgb(255, 255, 255);
-  font-size: large;
+  font-size: x-large;
+  padding: 5vh 0;
+  border-radius: 25px;
 }
 
 .question {
@@ -34,4 +36,82 @@ body {
 .delete {
   align-self: center;
   color: rgb(231, 76, 92);
+  cursor: pointer;
+}
+
+/* ////////////////////////// ADD NEW QUESTION ///////////////////////////// */
+
+#layout h1 {
+  line-height: 5vh;
+  margin-top: 10vh;
+  margin-bottom: 2vh;
+  font-size: 3rem;
+}
+
+#addQuestion {
+  background-color: white;
+  border-radius: 25px;
+}
+
+form {
+  margin: 10px 70px;
+  padding: 5vh 0;
+}
+
+form * {
+  font-size: x-large;
+}
+
+#inputQuestion {
+  width: 100%;
+  margin: 3vh 0vh;
+  padding: 1vh 0vh;
+  text-align: start;
+  padding: 1vh 1vh;
+}
+
+input[type="text"] {
+  min-width: 90%;
+  text-align: start;
+  padding: 1vh 1vh;
+  margin: 1vh 0;
+  border-color: rgb(210, 210, 210);
+  outline: none;
+}
+
+form div:last-of-type {
+  border: none;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  width: 3vh;
+  height: 3vh;
+}
+
+.answer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgb(210, 210, 210);
+  padding: 1vh;
+}
+
+h2 {
+  font-size: xx-large;
+  text-align: start;
+}
+
+button {
+  border-radius: 25px;
+  padding: 1vh 2vh;
+  border: none;
+  background-color: rgb(52, 152, 219);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  transition: 0.5s;
+  filter: brightness(1.5);
 }
