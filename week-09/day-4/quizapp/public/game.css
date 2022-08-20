@@ -16,6 +16,7 @@ body {
 #content {
   background-color: rgb(255, 255, 255);
   margin-top: 20px;
+  margin-bottom: 10px;
   padding: 5vh 0;
   border-radius: 25px;
 }
@@ -31,13 +32,12 @@ body {
   margin: 10px 200px;
   background-color: rgb(52, 152, 219);
   border-radius: 25px;
+  cursor: pointer;
 }
 
 #link {
-  margin-top: 15px;
-  display: block;
   text-decoration: none;
-  font-size: large;
+  font-size: x-large;
   color: orange;
 }
 

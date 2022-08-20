@@ -75,7 +75,7 @@ input[type="text"] {
   text-align: start;
   padding: 1vh 1vh;
   margin: 1vh 0;
-  border-color: rgb(210, 210, 210);
+  border: 2px solid rgb(210, 210, 210);
   outline: none;
 }
 
@@ -87,6 +87,7 @@ input[type="radio"] {
   cursor: pointer;
   width: 3vh;
   height: 3vh;
+  color: greenyellow;
 }
 
 .answer {
@@ -114,4 +115,10 @@ button {
 button:hover {
   transition: 0.5s;
   filter: brightness(1.5);
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+  font-size: x-large;
 }
