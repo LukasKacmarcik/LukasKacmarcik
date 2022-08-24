@@ -4,9 +4,70 @@
     <meta charset="UTF-8" />
     <title>Document</title>
     <link rel="stylesheet" href="main.css" />
+    <script
+      src="https://kit.fontawesome.com/3599e4f4c7.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <audio src="/audio/Organoid_-_09_-_Purple_Drift.mp3"></audio>
+    <audio src="audio/Organoid_-_09_-_Purple_Drift.mp3" id="currentSong" class="pause"></audio>
+    <div id="layout">
+      <div id="player">
+        <div id="head">
+          <div id="header">
+            <img id="gfLogo" src="img/foxplayer.png" alt="Green Fox logo" />
+            <div id="addPlaylist">
+              <h2>Playlists</h2>
+              <div id="addPlaylistBtn">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div id="songLogo"></div>
+        </div>
+        <div id="playlists"></div>
+        <div id="details">
+          <div id="names">
+            <h2>Some name</h2>
+            <p>some author</p>
+          </div>
+          <div id="assignBtns">
+            <div id="addToPlaylist">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div id="addToFavorites">
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div id="songs"></div>
+        <div id="controler">
+          <div id="leftPart">
+            <img src="./img/rewind.svg" id="back"></img>
+            <img src="./img/play.svg" id="playPause"></img>
+            <img src="./img/forward.svg" id="forward"></img>
+          </div>
+          <div id="middlePart">
+            <p id="currentTime">00:00</p>
+            <div id="progressContainer">
+              <div id="currProgress">
+                <div class="end"></div>
+              </div>
+            </div>
+            <p id="duration">00:00</p>
+          </div>
+          <div id="rightPart">
+            <img id="shuffle" src="./img/shuffle.svg" alt="shuffle icon"></img>
+            <img id="speakerIcon" src="img/volume.svg" alt="speaker icon" />
+            <div id="volumeContainer">
+              <div id="currentVolume">
+                <div class="end"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
