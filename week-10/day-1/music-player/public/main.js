@@ -1,16 +1,3 @@
-import { parseFile } from 'music-metadata';
-import { inspect } from 'util';
-
-(async () => {
-  try {
-    const metadata = await parseFile('../music-metadata/test/samples/MusicBrainz - Beth Hart - Sinner\'s Prayer [id3v2.3].V2.mp3');
-    console.log(inspect(metadata, { showHidden: false, depth: null }));
-  } catch (error) {
-    console.error(error.message);
-  }
-})();
-
-
 const currentSong = document.querySelector('#currentSong');
 const backBtn = document.querySelector('#back');
 const playPauseBtn = document.querySelector('#playPause');
@@ -67,7 +54,7 @@ function loadPlaylists() {
 };
 
 function loadSongs() {
-  fetch(`/playlist-tracks/`)
+  fetch(`/playlist-tracks`)
     .then(res => res.json())
     .then(dataSongs => {
       let counter = 1;

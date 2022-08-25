@@ -12,6 +12,7 @@ connection.connect((error) => {
     console.log("Database connection is not working.");
     return
   }
+
   console.log("Database is connected sucessfuly.");
 });
 
