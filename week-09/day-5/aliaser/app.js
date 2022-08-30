@@ -5,7 +5,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-const mainRouter = require('./routes/main.js');
+const mainRouter = require('./routes/mainRouter.js');
 /////// BACKEND ENDPOINTS /////////
 app.use('/', mainRouter);
 /////// FRONTEND ENDPOINTS /////////

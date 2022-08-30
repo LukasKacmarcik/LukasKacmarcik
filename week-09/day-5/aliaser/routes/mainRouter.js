@@ -30,6 +30,7 @@ async function deleteAlias(req, res) {
     const deletedAlias = await conQuery(sql2, req.params.id);
     res.sendStatus(204);
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: "PROBLEMO" });
   }
 }

@@ -14,31 +14,29 @@ form.addEventListener('submit', (e) => {
     hitCount: 0,
   };
 
-  if (urlInput.value && aliasInput.value) {
-    fetch(`/api/links/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newAlias)
+  fetch(`/api/links/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newAlias)
+  })
+    .then(res => {
+      if (res.status == 400) {
+        message.className = 'error';
+        message.textContent = 'Your alias is alredy in use!';
+        return Promise.reject(new Error('Your alias is already in use'));
+      }
+      return res;
     })
-      .then(res => {
-        if (res.status == 400) {
-          message.className = 'error';
-          message.textContent = 'Your alias is alredy in use!';
-          return Promise.reject(new Error('Your alias is already in use'));
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => {
-        message.className = 'answer';
-        message.textContent = `Your URL is aliased to ${data.alias} and your secret code is ${data.secretCode}`;
-        urlInput.value = '';
-        aliasInput.value = '';
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }
+    .then(res => res.json())
+    .then(data => {
+      message.className = 'answer';
+      message.innerHTML = `<p>Your URL is aliased to <strong>${data.alias}</strong> and your secret code is <strong>${data.secretCode}</strong><p>`;
+      urlInput.value = '';
+      aliasInput.value = '';
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 });
