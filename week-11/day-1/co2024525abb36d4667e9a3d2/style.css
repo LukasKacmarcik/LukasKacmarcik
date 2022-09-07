@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    background-color: rgb(36, 37, 43);
+    display: flex;
+}
+
+#app {
+    margin: 50px auto;
+    width: 400px;
+    border-radius: 25%;
+    overflow: hidden;
+}
+
+#info {
+    background: #1A1B21;
+    text-align: center;
+    color: white;
+}
+
+#image {
+    width: 100%;
+}
+
+#name {
+    margin-top: 20px;
+    color: white;
+    letter-spacing: 0.125rem;
+}
+
+#job {
+    color: rgba(243, 191, 153, 1);
+    font-weight: 400;
+    font-size: small;
+    line-height: 30px;
+}
+
+#website {
+    font-size: x-small;
+}
+
+#socials {
+    display: flex;
+    margin-top: 15px;
+}
+
+#email {
+    width: 120px;
+    height: 25px;
+    margin-left: 12%;
+    display: flex;
+    margin-right: auto;
+    background: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 13px 9px 11px;
+    border-radius: 10px;
+    column-gap: 10px;
+    color: black;
+
+}
+
+#linkedin {
+    width: 120px;
+    height: 25px;
+    margin-right: 12%;
+    display: flex;
+    background: rgba(80, 147, 226, 1);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 13px 9px 11px;
+    border-radius: 10px;
+    column-gap: 10px;
+}
+
+#linkedin_img {
+    width: 10px;
+    background-color: white;
+    padding: 1px;
+    color: rgba(80, 147, 226, 1);
+}
+
+.part {
+    background: #1A1B21;
+    color: white;
+    padding: 3% 12%;
+}
+
+.part > h2 {
+    line-height: 50px;
+}
+
+.text {
+    line-height: 20px;
+    opacity: 0.8;
+}
+
+#footer {
+    background: rgba(22, 22, 25, 1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    column-gap: 10%;
+}
