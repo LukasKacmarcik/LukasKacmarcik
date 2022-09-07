@@ -1,0 +1,81 @@
+/* #react-container {
+  
+} */
+
+#main>h2 {
+  margin-left: 300px;
+}
+
+#ratings {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+
+#ratings>h3 {
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+#ratings ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: -20;
+}
+
+#types {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin-top: 20px;
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+
+#types>h3 {
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+#types ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: -20;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 200px 1fr;
+}
+
+.hotel {
+  max-width: 1000px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 50px 1fr
+}
+
+.hotel h3 {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  margin-top: 0;
+}
+
+.image {
+  width: 200px;
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+
+.about {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
