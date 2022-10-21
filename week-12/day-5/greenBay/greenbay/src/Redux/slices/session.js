@@ -7,7 +7,7 @@ const initialState = {
   id: "",
   status: "idle",
   username: null,
-  messages: [],
+  messages: {},
 };
 
 export const fetchCurrentUser = createAsyncThunk(
@@ -28,14 +28,15 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await api.post("/signup", userData);
       if (response.statusText !== "Created") {
+        console.log(response.data.message, "slicelog1");
         throw new Error(response.data.message);
       }
       window.localStorage.setItem("jwt", `${response.data.accessToken}`);
-
+      console.log(response.data, "slicelog2");
       const response2 = await api.get("/user");
       return response2.data;
     } catch (error) {
-      throw new Error(JSON.stringify(error.response.data.message));
+      throw new Error(JSON.stringify(error.response.data));
     }
   }
 );
@@ -92,18 +93,14 @@ export const sessionSlice = createSlice({
         state.id = action.payload.userId;
         state.role = action.payload.role;
         state.username = action.payload.username;
-        state.messages = [
-          { message: "You have successfully registered.", type: "success" },
-        ];
+        state.messages = {};
         toast.success(`You have successfully registered as ${state.username}`, {
           position: "bottom-left",
         });
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.status = "failed";
-        state.messages = JSON.parse(action.error.message).map((message) => {
-          return { message, type: "error" };
-        });
+        state.messages = JSON.parse(action.error.message);
       })
       .addCase(loginUser.pending, (state, action) => {
         state.status = "loading";
