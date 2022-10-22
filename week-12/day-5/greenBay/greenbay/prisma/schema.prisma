@@ -16,10 +16,10 @@ model user {
 
 model item {
   id                String              @id @default(cuid())
-  owner_id          Int
+  owner_id          String              @db.VarChar(255)
   name              String              @db.VarChar(120)
   description       String              @db.VarChar(120)
-  price             Float               @default(0)
+  price             Int                 @default(0)
   img_url           String              @db.VarChar(255)
-  buyer_id          Int?
+  buyer_id          String?             @db.VarChar(255)
 }

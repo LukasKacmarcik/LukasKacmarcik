@@ -44,11 +44,17 @@ const {
   getCurrentUser,
 } = require("../controllers/authentication.js");
 
+const { addItem, getItems } = require("../controllers/items.js");
+
 // Authentication Endpoints
 api.get("/user", validateOptionalJWT, getCurrentUser);
 api.get("/users", getUsers);
 api.post("/signup", postSignup);
 api.post("/login", postLogin);
+
+// Items Endpoints
+api.get("/items", getItems);
+api.post("/item", verifyJWT, addItem);
 
 // export the routes
 module.exports = api;

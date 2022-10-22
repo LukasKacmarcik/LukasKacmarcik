@@ -5,7 +5,7 @@ import Home from "./components/views/home/Home";
 import Layout from "./components/layout/Layout";
 import RegistrationForm from "./components/views/regform/RegistrationForm";
 import LoginForm from "./components/views/login/LoginForm";
-import Additem from "./components/views/addItem/Additem";
+import AddItem from "./components/views/addItem/AddItem";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/addItem" element={<Additem />} />
+        <Route path="/addItem" element={<AddItem />} />
       </Route>
     </Routes>
   );
