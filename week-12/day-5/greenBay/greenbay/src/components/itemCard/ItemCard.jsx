@@ -1,12 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 import styles from "./ItemCard.module.scss";
 
 export default function ItemCard(props) {
+  const navigate = useNavigate();
+
   const shortendName = props.name.slice(0, 19) + " ...";
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={() => navigate(`/item/${props.id}`)}>
       <Card>
         <img
           alt={props.name.length < 19 ? props.name : shortendName}
