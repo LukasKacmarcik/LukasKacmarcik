@@ -1,14 +1,14 @@
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button, NavLink } from "reactstrap";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./registrationForm.module.scss";
+import { useNavigate, Link } from "react-router-dom";
+import styles from "./loginForm.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../../Redux/slices/session";
+import { loginUser } from "../../../Redux/slices/session";
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { signupUsernameError, signupPasswordError } = useSelector(
+  const { loginUsernameError, loginPasswordError } = useSelector(
     (state) => state.session.messages
   );
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const RegistrationForm = () => {
 
     const data = { username, password };
     try {
-      await dispatch(registerUser(data)).unwrap();
+      await dispatch(loginUser(data)).unwrap();
       navigate("/");
     } catch (err) {
       console.error(err);
@@ -27,8 +27,8 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className={styles.registrationForm}>
-      <h2>Registration</h2>
+    <div className={styles.loginForm}>
+      <h2>Log in</h2>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label for="username" className={styles.requiredField} tag="h4">
@@ -42,8 +42,8 @@ const RegistrationForm = () => {
             value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
-          {signupUsernameError &&
-            signupUsernameError.split("\n").map((message, index) => (
+          {loginUsernameError &&
+            loginUsernameError.split("\n").map((message, index) => (
               <p className={styles.error} key={index}>
                 {message}
               </p>
@@ -60,8 +60,8 @@ const RegistrationForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {signupPasswordError &&
-            signupPasswordError.split("\n").map((message, index) => (
+          {loginPasswordError &&
+            loginPasswordError.split("\n").map((message, index) => (
               <p className={styles.error} key={index}>
                 {message}
               </p>
@@ -70,8 +70,11 @@ const RegistrationForm = () => {
         <p>Fields marked with * are mandatory to fill out.</p>
         <Button color="primary">SUBMIT</Button>
       </Form>
+      <NavLink to="/signup" tag={Link}>
+        Register here
+      </NavLink>
     </div>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

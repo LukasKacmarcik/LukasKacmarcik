@@ -19,7 +19,7 @@ function Navbar() {
       </NavbarBrand>
       <Nav>
         <NavItem className={styles.navitem}>
-          <NavLink to="/signup" tag={Link}>
+          <NavLink to="/login" tag={Link}>
             <i className="fas fa-user-alt" style={{ fontSize: "36px" }} />
             {username && ` ${username}`}
           </NavLink>

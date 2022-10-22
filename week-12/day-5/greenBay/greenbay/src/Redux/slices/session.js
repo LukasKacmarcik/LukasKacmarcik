@@ -3,8 +3,7 @@ import api from "../../axios/api";
 import { toast } from "react-toastify";
 
 const initialState = {
-  role: "notLoggedIn",
-  id: "",
+  id: null,
   status: "idle",
   username: null,
   messages: {},
@@ -27,9 +26,9 @@ export const registerUser = createAsyncThunk(
   async (userData) => {
     try {
       const response = await api.post("/signup", userData);
-      if (response.statusText !== "Created") {
-        throw new Error(response.data.message);
-      }
+      // if (response.statusText !== "Created") {
+      //   throw new Error(response.data.message);
+      // }
       window.localStorage.setItem("jwt", `${response.data.accessToken}`);
       const response2 = await api.get("/user");
       return response2.data;
@@ -44,15 +43,15 @@ export const loginUser = createAsyncThunk(
   async (userData) => {
     try {
       const response = await api.post("/login", userData);
-      if (response.statusText !== "Created") {
-        throw new Error(response.data.message);
-      }
+      // if (response.statusText !== "Created") {
+      //   throw new Error(response.data.message);
+      // }
       window.localStorage.setItem("jwt", `${response.data.accessToken}`);
 
       const response2 = await api.get("/user");
       return response2.data;
     } catch (error) {
-      throw new Error(JSON.stringify(error.response.data.message));
+      throw new Error(JSON.stringify(error.response.data));
     }
   }
 );
@@ -89,8 +88,8 @@ export const sessionSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.id = action.payload.userId;
-        state.role = action.payload.role;
         state.username = action.payload.username;
+        state.cash = action.payload.cash;
         state.messages = {};
         toast.success(`You have successfully registered as ${state.username}`, {
           position: "bottom-left",
@@ -99,6 +98,9 @@ export const sessionSlice = createSlice({
       .addCase(registerUser.rejected, (state, action) => {
         state.status = "failed";
         state.messages = JSON.parse(action.error.message);
+        toast.error(`You failed to register`, {
+          position: "bottom-left",
+        });
       })
       .addCase(loginUser.pending, (state, action) => {
         state.status = "loading";
@@ -106,19 +108,18 @@ export const sessionSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.id = action.payload.userId;
-        state.role = action.payload.role;
         state.username = action.payload.username;
-        state.messages = [
-          { message: "You have successfully logged in.", type: "success" },
-        ];
+        state.cash = action.payload.cash;
+        state.messages = {};
         toast.success(`You have successfully logged in as ${state.username}`, {
           position: "bottom-left",
         });
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = "failed";
-        state.messages = JSON.parse(action.error.message).map((message) => {
-          return { message, type: "error" };
+        state.messages = JSON.parse(action.error.message);
+        toast.error(`You failed to log in`, {
+          position: "bottom-left",
         });
       });
   },
