@@ -27,7 +27,7 @@ const getCurrentUser = async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: {
-        user_id: req.userId,
+        id: req.userId,
       },
     });
 
@@ -92,14 +92,11 @@ const postSignup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const data = {
       username: req.body.username,
-      email_address: req.body.emailAddress,
-      address: req.body.address,
       password: hashedPassword,
-      role: req.body.role,
     };
     const user = await prisma.user.create({ data });
 
-    const accessToken = createToken(user.user_id);
+    const accessToken = createToken(user.id);
 
     res.status(201).json({ accessToken: accessToken });
   } catch (err) {

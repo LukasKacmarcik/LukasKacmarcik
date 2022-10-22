@@ -18,7 +18,6 @@ const RegistrationForm = () => {
     e.preventDefault();
 
     const data = { username, password };
-
     try {
       await dispatch(registerUser(data)).unwrap();
       navigate("/");
@@ -43,8 +42,13 @@ const RegistrationForm = () => {
             value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
+          {usernameError &&
+            usernameError.split("\n").map((message, index) => (
+              <p className={styles.error} key={index}>
+                {message}
+              </p>
+            ))}
         </FormGroup>
-        {usernameError && usernameError}
         <FormGroup>
           <Label for="password" className={styles.requiredField} tag="h4">
             Password:
@@ -56,8 +60,13 @@ const RegistrationForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {passwordError &&
+            passwordError.split("\n").map((message, index) => (
+              <p className={styles.error} key={index}>
+                {message}
+              </p>
+            ))}
         </FormGroup>
-        {passwordError && passwordError}
         <p>Fields marked with * are mandatory to fill out.</p>
         <Button color="primary">SUBMIT</Button>
       </Form>

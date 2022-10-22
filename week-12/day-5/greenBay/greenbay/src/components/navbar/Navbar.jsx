@@ -6,9 +6,12 @@ import {
   NavLink,
   Nav,
 } from "reactstrap";
+import { useSelector } from "react-redux/es/exports";
 import styles from "./navbar.module.scss";
 
 function Navbar() {
+  const username = useSelector((state) => state.session.username);
+
   return (
     <NavbarReactstrap className={styles.navbar}>
       <NavbarBrand to="/" tag={Link}>
@@ -18,6 +21,7 @@ function Navbar() {
         <NavItem className={styles.navitem}>
           <NavLink to="/signup" tag={Link}>
             <i className="fas fa-user-alt" style={{ fontSize: "36px" }} />
+            {username && ` ${username}`}
           </NavLink>
         </NavItem>
       </Nav>

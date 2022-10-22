@@ -1,6 +1,7 @@
 .registrationForm {
   h2 {
     margin-left: 25%;
+    margin-bottom: 10px;
   }
 
   form {
@@ -10,8 +11,13 @@
     padding-top: 20px;
   }
   .requiredField::after {
-    content: '*';
+    content: "*";
     color: rgb(201, 29, 29) !important;
     padding-left: 10px !important;
+  }
+
+  .error {
+    color: red !important;
+    margin: 0;
   }
 }

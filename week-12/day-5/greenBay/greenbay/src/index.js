@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { fetchCurrentUser } from "./Redux/slices/session";
 import App from "./App";
 

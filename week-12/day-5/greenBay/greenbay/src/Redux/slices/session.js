@@ -28,11 +28,9 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await api.post("/signup", userData);
       if (response.statusText !== "Created") {
-        console.log(response.data.message, "slicelog1");
         throw new Error(response.data.message);
       }
       window.localStorage.setItem("jwt", `${response.data.accessToken}`);
-      console.log(response.data, "slicelog2");
       const response2 = await api.get("/user");
       return response2.data;
     } catch (error) {
