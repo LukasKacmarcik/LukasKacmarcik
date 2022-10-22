@@ -4,10 +4,18 @@ import { toast } from "react-toastify";
 
 const initialState = {
   status: "idle",
-  allItems: [],
   currentItem: {},
+  items: [],
   messages: {},
 };
+
+export const fetchAllItems = createAsyncThunk(
+  "items/fetchAllItems",
+  async () => {
+    const response = await api.get("/items");
+    return response.data;
+  }
+);
 
 export const addNewItem = createAsyncThunk(
   "items/addNewItem",
@@ -27,6 +35,18 @@ export const itemsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
+    builder
+      .addCase(fetchAllItems.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(fetchAllItems.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.items = action.payload;
+      })
+      .addCase(fetchAllItems.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
     builder
       .addCase(addNewItem.pending, (state, action) => {
         state.status = "loading";

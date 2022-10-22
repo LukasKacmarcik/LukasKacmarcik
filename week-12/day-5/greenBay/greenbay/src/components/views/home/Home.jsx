@@ -1,5 +1,6 @@
 import { Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import ListOfItems from "../../listOfItems/ListOfItems";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function Home() {
       >
         Add Item
       </Button>
+      <ListOfItems />
     </>
   );
 }
