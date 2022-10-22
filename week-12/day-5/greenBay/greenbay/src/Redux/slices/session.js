@@ -62,9 +62,9 @@ export const sessionSlice = createSlice({
   reducers: {
     logOut(state, action) {
       localStorage.removeItem("jwt");
-      localStorage.removeItem("cartItems");
-      state.role = "notLoggedIn";
+      state.cash = null;
       state.username = null;
+      state.id = null;
     },
   },
   extraReducers(builder) {
@@ -76,7 +76,7 @@ export const sessionSlice = createSlice({
         state.status = "succeeded";
         state.username = action.payload.username;
         state.id = action.payload.userId;
-        state.role = action.payload.role;
+        state.cash = action.payload.cash;
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
         state.status = "failed";

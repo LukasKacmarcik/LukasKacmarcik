@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { isValidEmail, isLongEnough, areEnglishChars } = require("../functions");
+const { isLongEnough, areEnglishChars } = require("../functions");
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET);

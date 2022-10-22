@@ -1,16 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar as NavbarReactstrap,
   NavbarBrand,
   NavItem,
   NavLink,
   Nav,
+  Button,
 } from "reactstrap";
-import { useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import styles from "./navbar.module.scss";
+import { logOut } from "../../Redux/slices/session";
+import { toast } from "react-toastify";
 
 function Navbar() {
-  const username = useSelector((state) => state.session.username);
+  const { username, cash, id } = useSelector((state) => state.session);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleLogOut() {
+    dispatch(logOut());
+    toast.success(`You have successfully logged out`, {
+      position: "bottom-left",
+    });
+    navigate("/");
+  }
 
   return (
     <NavbarReactstrap className={styles.navbar}>
@@ -21,9 +35,25 @@ function Navbar() {
         <NavItem className={styles.navitem}>
           <NavLink to="/login" tag={Link}>
             <i className="fas fa-user-alt" style={{ fontSize: "36px" }} />
-            {username && ` ${username}`}
           </NavLink>
+          {username && ` ${username}`}
+          <br></br>
+          {(cash === 0 || cash) && `${cash} €`}
         </NavItem>
+        &nbsp; &nbsp;
+        {id && (
+          <Button
+            color="success"
+            outline
+            size="md"
+            onClick={() => {
+              handleLogOut();
+            }}
+          >
+            <i className="fas fa-door-open" />
+            {` Log Out`}
+          </Button>
+        )}
       </Nav>
     </NavbarReactstrap>
   );
