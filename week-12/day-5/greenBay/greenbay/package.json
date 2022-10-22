@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^14.4.3",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "bootstrap": "^5.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

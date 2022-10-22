@@ -1,4 +1,4 @@
-.nav {
+.navbar {
   display: flex;
   justify-content: space-between;
   background: #f7f7f7;
@@ -10,14 +10,10 @@
     padding: 0;
   }
 
-  a {
-    margin: 0;
-    padding: 0;
-  }
-
-  button {
-    margin-left: 5px;
-  }
-
   padding: 0;
+}
+
+.navitem {
+  display: flex;
+  align-items: center;
 }
