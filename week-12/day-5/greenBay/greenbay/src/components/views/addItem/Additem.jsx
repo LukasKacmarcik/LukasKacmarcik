@@ -1,9 +1,9 @@
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AddItem.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewItem } from "../../../Redux/slices/items";
+import { addNewItem, resetMessages } from "../../../Redux/slices/items";
 
 export default function AddItem() {
   const [name, setName] = useState("");
@@ -37,6 +37,10 @@ export default function AddItem() {
       console.error("Failed to save the item: ", error);
     }
   };
+
+  useEffect(() => {
+    dispatch(resetMessages());
+  }, [dispatch]);
 
   return (
     <div className={styles.addItemForm}>

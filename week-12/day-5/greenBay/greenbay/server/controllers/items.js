@@ -49,7 +49,11 @@ const addItem = async (req, res) => {
     isValid = false;
   }
 
-  if (parseInt(req.body.price) < 0 || parseInt(req.body.price).isNaN) {
+  if (
+    parseInt(req.body.price) < 0 ||
+    parseInt(req.body.price).isNaN ||
+    !Number.isInteger(req.body.price)
+  ) {
     message.addItemPriceError += "The number must be positive whole number!\n";
     isValid = false;
   }

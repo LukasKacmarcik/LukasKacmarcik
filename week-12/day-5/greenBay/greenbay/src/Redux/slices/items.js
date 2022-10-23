@@ -33,7 +33,11 @@ export const addNewItem = createAsyncThunk(
 export const itemsSlice = createSlice({
   name: "session",
   initialState,
-  reducers: {},
+  reducers: {
+    resetMessages(state, action) {
+      state.messages = {};
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchAllItems.pending, (state, action) => {
@@ -70,5 +74,7 @@ export const itemsSlice = createSlice({
       });
   },
 });
+
+export const { resetMessages } = itemsSlice.actions;
 
 export default itemsSlice.reducer;
