@@ -38,7 +38,7 @@ const validateOptionalJWT = (req, res, next) => {
 };
 
 const {
-  getUsers,
+  getUserNameById,
   postSignup,
   postLogin,
   getCurrentUser,
@@ -48,7 +48,7 @@ const { addItem, getItems } = require("../controllers/items.js");
 
 // Authentication Endpoints
 api.get("/user", validateOptionalJWT, getCurrentUser);
-api.get("/users", getUsers);
+api.get("/user/:id", getUserNameById);
 api.post("/signup", postSignup);
 api.post("/login", postLogin);
 

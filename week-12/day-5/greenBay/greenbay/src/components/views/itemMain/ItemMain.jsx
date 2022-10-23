@@ -1,16 +1,26 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 import styles from "./ItemMain.module.scss";
+import { fetchUsernamesByIds } from "../../../Redux/slices/session";
 
 export default function ItemMain() {
-  const navigate = useNavigate();
   const urlParams = useParams();
   const dispatch = useDispatch();
   const currentItem = useSelector((state) => state.items.items).find(
     (i) => i.id === urlParams.id
   );
+  const sellerName = useSelector((state) => state.session.sellerName);
+  const buyerName = useSelector((state) => state.session.buyerName);
+
+  useEffect(() => {
+    if (currentItem) {
+      dispatch(
+        fetchUsernamesByIds([currentItem.owner_id, currentItem.buyer_id])
+      );
+    }
+  }, [dispatch, currentItem]);
 
   return (
     currentItem && (
@@ -31,10 +41,8 @@ export default function ItemMain() {
           <h2>Name: {currentItem.name}</h2>
           <p>Description: {currentItem.description}</p>
           <h4>Price: {currentItem.price}</h4>
-          <h4>Owner Id: {currentItem.owner_id}</h4>
-          {currentItem.buyer_id !== null && (
-            <h4>Buyer Id: {currentItem.owner_id}</h4>
-          )}
+          <h4>Sellername: {sellerName}</h4>
+          {buyerName && <h4>Buyername: {buyerName}</h4>}
         </div>
         <Button size="lg" color="success" outline>
           BUY

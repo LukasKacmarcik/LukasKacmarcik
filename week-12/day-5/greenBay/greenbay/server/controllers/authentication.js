@@ -9,10 +9,14 @@ const createToken = (id) => {
   return jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET);
 };
 
-const getUsers = async (req, res) => {
+const getUserNameById = async (req, res) => {
   try {
-    const users = await prisma.user.findMany();
-    res.status(200).json(users);
+    const user = await prisma.user.findUnique({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json({ username: user.username });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: err.message });
@@ -159,7 +163,7 @@ const postLogin = async (req, res) => {
 };
 
 module.exports = {
-  getUsers,
+  getUserNameById,
   postSignup,
   postLogin,
   getCurrentUser,

@@ -6,6 +6,8 @@ const initialState = {
   id: null,
   status: "idle",
   username: null,
+  buyerName: null,
+  sellerName: null,
   messages: {},
 };
 
@@ -18,6 +20,31 @@ export const fetchCurrentUser = createAsyncThunk(
     } catch (err) {
       throw new Error(err.response.data.message);
     }
+  }
+);
+
+export const fetchUsernamesByIds = createAsyncThunk(
+  "session/fetchUsernameById",
+  async ([sellerId, buyerId]) => {
+    let usersNames = {};
+    try {
+      const responseSeller = await api.get(`/user/${sellerId}`);
+      usersNames.sellerName = responseSeller.data.username;
+    } catch (err) {
+      throw new Error(err.response.data.message);
+    }
+
+    if (buyerId === null) {
+      usersNames.buyerName = null;
+    } else {
+      try {
+        const responseBuyer = await api.get(`/user/${buyerId}`);
+        usersNames.buyerName = responseBuyer.data.username;
+      } catch (err) {
+        throw new Error(err.response.data.message);
+      }
+    }
+    return usersNames;
   }
 );
 
@@ -79,6 +106,19 @@ export const sessionSlice = createSlice({
         state.cash = action.payload.cash;
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.status = "failed";
+        state.messages = [{ message: action.error.message, type: "error" }];
+      });
+    builder
+      .addCase(fetchUsernamesByIds.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(fetchUsernamesByIds.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.buyerName = action.payload.buyerName;
+        state.sellerName = action.payload.sellerName;
+      })
+      .addCase(fetchUsernamesByIds.rejected, (state, action) => {
         state.status = "failed";
         state.messages = [{ message: action.error.message, type: "error" }];
       })

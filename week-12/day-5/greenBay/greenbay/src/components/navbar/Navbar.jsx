@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <NavbarReactstrap className={styles.navbar}>
       <NavbarBrand to="/" tag={Link}>
-        <img src="brand.png" alt="brand" />
+        <img src="http://localhost:3000/brand.png" alt="brand" />
       </NavbarBrand>
       <Nav>
         <NavItem className={styles.navitem}>
