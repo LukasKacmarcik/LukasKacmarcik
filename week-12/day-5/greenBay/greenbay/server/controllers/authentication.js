@@ -23,6 +23,25 @@ const getUserNameById = async (req, res) => {
   }
 };
 
+const addMoney = async (req, res) => {
+  try {
+    const user = await prisma.user.update({
+      where: {
+        id: req.userId,
+      },
+      data: {
+        cash: {
+          increment: 100,
+        },
+      },
+    });
+    res.status(200).json({ username: user.username });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const getCurrentUser = async (req, res) => {
   if (req.userId === null) {
     return res.status(200).json({ userId: null });
@@ -164,6 +183,7 @@ const postLogin = async (req, res) => {
 
 module.exports = {
   getUserNameById,
+  addMoney,
   postSignup,
   postLogin,
   getCurrentUser,

@@ -20,7 +20,7 @@ const LoginForm = () => {
     const data = { username, password };
     try {
       await dispatch(loginUser(data)).unwrap();
-      navigate("/");
+      navigate(-1);
     } catch (err) {
       console.error(err);
     }
@@ -69,10 +69,10 @@ const LoginForm = () => {
         </FormGroup>
         <p>Fields marked with * are mandatory to fill out.</p>
         <Button color="primary">SUBMIT</Button>
+        <NavLink to="/signup" tag={Link}>
+          Register here
+        </NavLink>
       </Form>
-      <NavLink to="/signup" tag={Link}>
-        Register here
-      </NavLink>
     </div>
   );
 };

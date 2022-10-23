@@ -9,7 +9,11 @@ import {
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import styles from "./navbar.module.scss";
-import { logOut } from "../../Redux/slices/session";
+import {
+  fetchCurrentUser,
+  fetchMoney,
+  logOut,
+} from "../../Redux/slices/session";
 import { toast } from "react-toastify";
 
 function Navbar() {
@@ -17,6 +21,17 @@ function Navbar() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  async function getMoney() {
+    await dispatch(fetchMoney()).unwrap();
+    await dispatch(fetchCurrentUser()).unwrap();
+    toast.success(
+      `Ministry of love sent your $. This should last for 6 months!!!`,
+      {
+        position: "bottom-left",
+      }
+    );
+  }
 
   function handleLogOut() {
     dispatch(logOut());
@@ -31,6 +46,19 @@ function Navbar() {
       <NavbarBrand to="/" tag={Link}>
         <img src="http://localhost:3000/brand.png" alt="brand" />
       </NavbarBrand>
+      {id && (
+        <Button
+          color="success"
+          outline
+          size="lg"
+          onClick={() => {
+            getMoney();
+          }}
+        >
+          <i className="far fa-money-bill-alt" />
+          {` Get Your Universal Income $$$`}
+        </Button>
+      )}
       <Nav>
         <NavItem className={styles.navitem}>
           <NavLink to="/login" tag={Link}>

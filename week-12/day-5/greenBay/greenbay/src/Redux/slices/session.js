@@ -23,6 +23,15 @@ export const fetchCurrentUser = createAsyncThunk(
   }
 );
 
+export const fetchMoney = createAsyncThunk("session/fetchMoney", async () => {
+  try {
+    const response = await api.patch("/user/addMoney");
+    return response.data;
+  } catch (err) {
+    throw new Error(err.response.data.message);
+  }
+});
+
 export const fetchUsernamesByIds = createAsyncThunk(
   "session/fetchUsernameById",
   async ([sellerId, buyerId]) => {

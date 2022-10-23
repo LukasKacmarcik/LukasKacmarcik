@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 import styles from "./ItemMain.module.scss";
@@ -8,6 +8,7 @@ import {
   fetchUsernamesByIds,
 } from "../../../Redux/slices/session";
 import { buyItem, resetMessages } from "../../../Redux/slices/items";
+import { toast } from "react-toastify";
 
 export default function ItemMain() {
   const urlParams = useParams();
@@ -15,16 +16,23 @@ export default function ItemMain() {
   const currentItem = useSelector((state) => state.items.items).find(
     (i) => i.id === urlParams.id
   );
+  const userId = useSelector((state) => state.session.id);
   const { buyItemErrors } = useSelector((state) => state.items.messages);
   const sellerName = useSelector((state) => state.session.sellerName);
   const buyerName = useSelector((state) => state.session.buyerName);
 
   const handleBuy = async () => {
-    try {
-      await dispatch(buyItem(currentItem.id)).unwrap();
-      await dispatch(fetchCurrentUser()).unwrap();
-    } catch (err) {
-      console.error("Failed to buy the item: ", err);
+    if (userId) {
+      try {
+        await dispatch(buyItem(currentItem.id)).unwrap();
+        await dispatch(fetchCurrentUser()).unwrap();
+      } catch (err) {
+        console.error("Failed to buy the item: ", err);
+      }
+    } else {
+      toast.error(`Log in before purchasing.`, {
+        position: "bottom-left",
+      });
     }
   };
 

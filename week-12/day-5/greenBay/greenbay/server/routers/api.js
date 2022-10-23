@@ -39,6 +39,7 @@ const validateOptionalJWT = (req, res, next) => {
 
 const {
   getUserNameById,
+  addMoney,
   postSignup,
   postLogin,
   getCurrentUser,
@@ -48,6 +49,7 @@ const { addItem, getItems, buyItem } = require("../controllers/items.js");
 
 // Authentication Endpoints
 api.get("/user", validateOptionalJWT, getCurrentUser);
+api.patch("/user/addMoney", verifyJWT, addMoney);
 api.get("/user/:id", getUserNameById);
 api.post("/signup", postSignup);
 api.post("/login", postLogin);

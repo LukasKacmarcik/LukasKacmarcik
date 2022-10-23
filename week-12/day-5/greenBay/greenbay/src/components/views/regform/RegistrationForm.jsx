@@ -20,7 +20,7 @@ const RegistrationForm = () => {
     const data = { username, password };
     try {
       await dispatch(registerUser(data)).unwrap();
-      navigate("/");
+      navigate(-2);
     } catch (err) {
       console.error(err);
     }
