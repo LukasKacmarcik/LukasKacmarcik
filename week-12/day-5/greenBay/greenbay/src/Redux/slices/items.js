@@ -68,12 +68,9 @@ export const itemsSlice = createSlice({
       .addCase(addNewItem.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items = action.payload;
-        toast.success(
-          `Item ${JSON.stringify(action.payload)} successfully added`,
-          {
-            position: "bottom-left",
-          }
-        );
+        toast.success(`Item successfully added`, {
+          position: "bottom-left",
+        });
       })
       .addCase(addNewItem.rejected, (state, action) => {
         state.status = "failed";

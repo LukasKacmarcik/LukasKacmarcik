@@ -58,7 +58,7 @@ const buyItem = async (req, res) => {
       return;
     }
 
-    //Paing for item
+    //Paying for item
     await prisma.user.update({
       where: {
         id: buyerId,
@@ -126,7 +126,7 @@ const addItem = async (req, res) => {
   if (
     parseInt(req.body.price) < 0 ||
     parseInt(req.body.price).isNaN ||
-    !Number.isInteger(req.body.price)
+    !Number.isInteger(parseInt(req.body.price))
   ) {
     message.addItemPriceError += "The number must be positive whole number!\n";
     isValid = false;
@@ -149,6 +149,7 @@ const addItem = async (req, res) => {
     const newItemData = await prisma.item.create({
       data,
     });
+    console.log(newItemData);
     res.status(200).json(newItemData);
   } catch (err) {
     console.error(err);

@@ -12,7 +12,6 @@ import { buyItem, resetMessages } from "../../../Redux/slices/items";
 export default function ItemMain() {
   const urlParams = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const currentItem = useSelector((state) => state.items.items).find(
     (i) => i.id === urlParams.id
   );
@@ -24,7 +23,6 @@ export default function ItemMain() {
     try {
       await dispatch(buyItem(currentItem.id)).unwrap();
       await dispatch(fetchCurrentUser()).unwrap();
-      // navigate("/");
     } catch (err) {
       console.error("Failed to buy the item: ", err);
     }
