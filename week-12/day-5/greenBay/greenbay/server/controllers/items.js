@@ -11,6 +11,80 @@ const getItems = async (req, res) => {
   }
 };
 
+const buyItem = async (req, res) => {
+  const itemId = req.params.id;
+  const buyerId = req.userId;
+
+  let isValid = true;
+  let message = {
+    buyItemErrors: "",
+  };
+
+  try {
+    const item = await prisma.item.findUnique({
+      where: {
+        id: itemId,
+      },
+    });
+    if (!item) {
+      console.log(item, "ite 30");
+      isValid = false;
+      message.buyItemErrors += "Item is not fount. ";
+    } else {
+      if (item.buyer_id) {
+        isValid = false;
+        message.buyItemErrors += "Item can't be bought. ";
+      }
+    }
+    const buyer = await prisma.user.findUnique({
+      where: {
+        id: buyerId,
+      },
+    });
+
+    if (buyer.cash < item.price) {
+      isValid = false;
+      message.buyItemErrors += "Come back when u have enough $$$. ";
+    }
+
+    if (buyer.id === item.owner_id) {
+      isValid = false;
+      message.buyItemErrors +=
+        "OMG u can't buy your own item STOP DRINKING SO MUCH. ";
+    }
+
+    if (!isValid) {
+      res.status(400).json(message);
+      return;
+    }
+
+    //Paing for item
+    await prisma.user.update({
+      where: {
+        id: buyerId,
+      },
+      data: {
+        cash: (buyer.cash -= item.price),
+      },
+    });
+
+    //Setting buyers id to item
+    await prisma.item.update({
+      where: {
+        id: itemId,
+      },
+      data: {
+        buyer_id: buyerId,
+      },
+    });
+
+    return res.sendStatus(204);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const addItem = async (req, res) => {
   let isValid = true;
   let message = {
@@ -225,6 +299,7 @@ const deleteRestaurantById = async (req, res) => {
 module.exports = {
   getItems,
   addItem,
+  buyItem,
   updateRestaurant,
   getRestaurantById,
   deleteRestaurantById,

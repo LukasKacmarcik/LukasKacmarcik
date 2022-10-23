@@ -30,6 +30,16 @@ export const addNewItem = createAsyncThunk(
   }
 );
 
+export const buyItem = createAsyncThunk("items/buyItem", async (itemId) => {
+  try {
+    await api.patch(`/item/${itemId}/buy`);
+    const response = await api.get("/items");
+    return response.data;
+  } catch (error) {
+    throw new Error(JSON.stringify(error.response.data));
+  }
+});
+
 export const itemsSlice = createSlice({
   name: "session",
   initialState,
@@ -69,6 +79,24 @@ export const itemsSlice = createSlice({
         state.status = "failed";
         state.messages = JSON.parse(action.error.message);
         toast.error(`You failed to add item`, {
+          position: "bottom-left",
+        });
+      });
+    builder
+      .addCase(buyItem.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(buyItem.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.items = action.payload;
+        toast.success(`Item successfully bought`, {
+          position: "bottom-left",
+        });
+      })
+      .addCase(buyItem.rejected, (state, action) => {
+        state.status = "failed";
+        state.messages = JSON.parse(action.error.message);
+        toast.error(`You failed to buy item`, {
           position: "bottom-left",
         });
       });

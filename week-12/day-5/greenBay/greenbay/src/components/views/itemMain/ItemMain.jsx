@@ -1,20 +1,37 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 import styles from "./ItemMain.module.scss";
-import { fetchUsernamesByIds } from "../../../Redux/slices/session";
+import {
+  fetchCurrentUser,
+  fetchUsernamesByIds,
+} from "../../../Redux/slices/session";
+import { buyItem, resetMessages } from "../../../Redux/slices/items";
 
 export default function ItemMain() {
   const urlParams = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentItem = useSelector((state) => state.items.items).find(
     (i) => i.id === urlParams.id
   );
+  const { buyItemErrors } = useSelector((state) => state.items.messages);
   const sellerName = useSelector((state) => state.session.sellerName);
   const buyerName = useSelector((state) => state.session.buyerName);
 
+  const handleBuy = async () => {
+    try {
+      await dispatch(buyItem(currentItem.id)).unwrap();
+      await dispatch(fetchCurrentUser()).unwrap();
+      // navigate("/");
+    } catch (err) {
+      console.error("Failed to buy the item: ", err);
+    }
+  };
+
   useEffect(() => {
+    dispatch(resetMessages());
     if (currentItem) {
       dispatch(
         fetchUsernamesByIds([currentItem.owner_id, currentItem.buyer_id])
@@ -43,9 +60,10 @@ export default function ItemMain() {
         <h4>Sellername: {sellerName}</h4>
         {buyerName && <h4>Buyername: {buyerName}</h4>}
       </div>
-      <Button size="lg" color="success" outline>
+      <Button size="lg" color="success" outline onClick={handleBuy}>
         BUY
       </Button>
+      {buyItemErrors && <h5 style={{ color: "red" }}>{buyItemErrors}</h5>}
     </div>
   ) : (
     <h1>Item not found</h1>

@@ -44,7 +44,7 @@ const {
   getCurrentUser,
 } = require("../controllers/authentication.js");
 
-const { addItem, getItems } = require("../controllers/items.js");
+const { addItem, getItems, buyItem } = require("../controllers/items.js");
 
 // Authentication Endpoints
 api.get("/user", validateOptionalJWT, getCurrentUser);
@@ -54,6 +54,7 @@ api.post("/login", postLogin);
 
 // Items Endpoints
 api.get("/items", getItems);
+api.patch("/item/:id/buy", verifyJWT, buyItem);
 api.post("/item", verifyJWT, addItem);
 
 // export the routes
